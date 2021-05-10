@@ -1,0 +1,21 @@
+﻿<Window x:Class="BlueSky.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlueSky"
+        mc:Ignorable="d"
+        Title="BlueSky Launcher Beta 4 PreRelease 1 Version Pre_0.4a"
+        ResizeMode="CanResize"
+        d:DesignWidth="750" d:DesignHeight="450"
+        MinWidth="580" MinHeight="375">
+    <Grid>
+        <Image Height="211" Margin="25,0,25,200" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="bluesky-logo-by-tech-archives.png"/>
+        <Button x:Name="Play_Copy" Content="Play (ClipSVC)" Margin="0,50,0,0" Width="350" Height="40" Click="Button_Click1"/>
+        <Button Content="About" HorizontalAlignment="Right" Margin="0,0,10,12" VerticalAlignment="Bottom" Width="80" Click="Button_Click" Height="30"/>
+        <Button Content="Settings" HorizontalAlignment="Left" Margin="10,0,0,12" VerticalAlignment="Bottom" Width="80" Height="30" Click="Button_Click_1"/>
+    </Grid>
+    <Window.Background>
+        <ImageBrush ImageSource="bs-bg.jpg" Stretch="UniformToFill" />
+    </Window.Background>
+</Window>
