@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlueSky"
         mc:Ignorable="d"
-        Title="BlueSky Launcher Beta 4 PreRelease 1 Version Pre_0.4a"
+        Title="BlueSky Launcher Beta 5 Version 0.5b"
         ResizeMode="CanResize"
         d:DesignWidth="750" d:DesignHeight="450"
         MinWidth="580" MinHeight="375">
