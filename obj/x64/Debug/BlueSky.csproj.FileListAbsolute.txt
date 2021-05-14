@@ -51,3 +51,5 @@ E:\BlueSky Launcher\BlueSky\BlueSky\bin\x64\Debug\UAC\enable.reg
 E:\BlueSky Launcher\BlueSky\BlueSky\bin\x64\Debug\grant.exe
 E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\DevCheck.g.cs
 E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\DevCheck.baml
+E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\MCDownloader.g.cs
+E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\MCDownloader.baml

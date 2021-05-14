@@ -31,7 +31,7 @@ namespace BlueSky
         {
             Console.WriteLine("NEVER CLOSING THIS WINDOW!");
             InitializeComponent();
-            Console.WriteLine("BlueSky Launcher \nBeta 5 Version 0.5b");
+            Console.WriteLine("BlueSky Launcher \nBeta 6 Version 0.6c");
         }
 
 

@@ -177,5 +177,11 @@ namespace BlueSky
             DevCheck dev1 = new DevCheck();
             dev1.Show();
         }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            MCDownloader mcd1 = new MCDownloader();
+            mcd1.Show();
+        }
     }
 }

@@ -19,8 +19,9 @@
             <Button Content="Install MC from an extracted APPX bundle" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="351" Height="35" Click="Button_Click_6"/>
         </Grid>
         <Button Content="Developer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Height="24" Click="Button_Click_1"/>
+        <Button Content="Minecraft Downloader (Experimental)" HorizontalAlignment="Center" Margin="140,381,142,0" VerticalAlignment="Top" Width="352" Height="35" Click="Button_Click_9"/>
     </Grid>
-    
+
     <Window.Background>
         <ImageBrush ImageSource="bs-bg.jpg" Stretch="UniformToFill" />
     </Window.Background>

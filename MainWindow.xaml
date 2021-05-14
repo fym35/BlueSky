@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlueSky"
         mc:Ignorable="d"
-        Title="BlueSky Launcher Beta 5 Version 0.5b"
+        Title="BlueSky Launcher Beta 6 Version 0.6c"
         ResizeMode="CanResize"
         d:DesignWidth="750" d:DesignHeight="450"
         MinWidth="580" MinHeight="375">
     <Grid>
-        <Image Height="211" Margin="25,0,25,200" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="bluesky-logo-by-tech-archives.png"/>
-        <Button x:Name="Play_Copy" Content="Play (ClipSVC)" Margin="0,50,0,0" Width="350" Height="40" Click="Button_Click1"/>
-        <Button Content="About" HorizontalAlignment="Right" Margin="0,0,10,12" VerticalAlignment="Bottom" Width="80" Click="Button_Click" Height="30"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="139*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="548*"/>
+        </Grid.ColumnDefinitions>
+        <Image Height="211" Margin="25,4,25,204" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="bluesky-logo-by-tech-archives.png" Grid.ColumnSpan="3"/>
+        <Button x:Name="Play_Copy" Content="Play (ClipSVC)" Margin="2,214,196,165" Width="350" Height="40" Click="Button_Click1" Grid.Column="2"/>
+        <Button Content="About" HorizontalAlignment="Right" Margin="0,0,10,12" VerticalAlignment="Bottom" Width="80" Click="Button_Click" Height="30" Grid.Column="2"/>
         <Button Content="Settings" HorizontalAlignment="Left" Margin="10,0,0,12" VerticalAlignment="Bottom" Width="80" Height="30" Click="Button_Click_1"/>
     </Grid>
     <Window.Background>
