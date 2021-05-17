@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Management.Automation;
 using System.Windows.Forms;
 
 namespace BlueSky
@@ -41,38 +42,7 @@ namespace BlueSky
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageboxresult = (MessageBoxResult)System.Windows.Forms.MessageBox.Show("This will restore your PC and all changes made by the launcher to its own original state. But, if somethings goes wrong, this can cause a crictal damage. Please create a full backup of your system first before clicking OK, else click Cancel.", "WARNING", (MessageBoxButtons)MessageBoxButton.OKCancel);
-
-            if (messageboxresult == MessageBoxResult.OK)
-            {
-                Console.WriteLine("Turning off User Account Control...");
-                // disable uac first to prevent error
-                string uacdisable = AppDomain.CurrentDomain.BaseDirectory + "UAC/disable.reg";
-                Process regeditProcess = Process.Start("regedit.exe", "/s \"" + uacdisable + "\"");
-                regeditProcess.WaitForExit();
-                // start operation
-                Console.WriteLine("Starting operation...");
-                string sys32path = @"C:\Windows\System32\Windows.ApplicationModel.Store.dll";
-                string wow64path = @"C:\Windows\SysWOW64\Windows.ApplicationModel.Store.dll";
-                System.Diagnostics.Process res1 = System.Diagnostics.Process.Start("C:\\Windows\\System32\\sfc.exe" + sys32path);
-                res1.WaitForExit();
-                Console.WriteLine("Restored!");
-                System.Diagnostics.Process res2 = System.Diagnostics.Process.Start("C:\\Windows\\System32\\sfc.exe" + wow64path);
-                res2.WaitForExit();
-                Console.WriteLine("Restored!");
-                // re-enable uac because we completed our task
-                Console.WriteLine("Finalizing the task...");
-                string uacenable = AppDomain.CurrentDomain.BaseDirectory + "UAC/enable.reg";
-                Process regeditProcess2 = Process.Start("regedit.exe", "/s \"" + uacenable + "\"");
-                regeditProcess2.WaitForExit();
-                Console.WriteLine("DEBUG: Sending data...");
-                Console.WriteLine("Restore finished!");
-                System.Windows.Forms.MessageBox.Show("Restore finished!");
-            }
-            if (messageboxresult == MessageBoxResult.Cancel)
-            {
-                System.Windows.Forms.MessageBox.Show("The operation is cancelled by user!");
-            }
+            System.Windows.Forms.MessageBox.Show("Not implemented");
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -100,21 +70,37 @@ namespace BlueSky
             dlg.DefaultExt = ".appx";
             dlg.Filter = "Appx File (*.appx)|*.appx|MSIX File (*.msix)|*.msix";
 
-
-            // Display OpenFileDialog by calling ShowDialog method 
+            
+            //Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
 
             string apath = dlg.FileName;
-            MessageBoxResult messageboxresult = (MessageBoxResult)System.Windows.Forms.MessageBox.Show("You Selected:" + apath, "Install?", (MessageBoxButtons)MessageBoxButton.OKCancel);
-
-            if (messageboxresult == MessageBoxResult.OK)
-            {
-                System.Diagnostics.Process.Start("powershell", "Add-AppxPackage -Path " + apath);
-                System.Windows.Forms.MessageBox.Show("Installed Minecraft!");
-            }
-            if (messageboxresult == MessageBoxResult.Cancel)
+            if (apath == "")
             {
                 System.Windows.Forms.MessageBox.Show("The operation is cancelled by user!");
+            }
+            else
+            {
+                MessageBoxResult messageboxresult = (MessageBoxResult)System.Windows.Forms.MessageBox.Show("You Selected:" + " " + apath, "Install?", (MessageBoxButtons)MessageBoxButton.OKCancel);
+
+                if (messageboxresult == MessageBoxResult.OK)
+                {
+                    System.Diagnostics.Process installmc = System.Diagnostics.Process.Start("powershell", "Add-AppxPackage -Path " + apath);
+                    installmc.WaitForExit();
+                    int exitcode = installmc.ExitCode;
+                    if (exitcode == 0)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Minecraft installed successfully!");
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("Minecraft failed to install, possibly due to unsupported Windows version, corrupted or damaged APPX package. Please download Minecraft package from Minecraft Downloader and try again.");
+                    }
+                }
+                if (messageboxresult == MessageBoxResult.Cancel)
+                {
+                    System.Windows.Forms.MessageBox.Show("The operation is cancelled by user!");
+                }
             }
         }
 
@@ -134,9 +120,19 @@ namespace BlueSky
                 string pw;
                 clst = @"/C net start ""ClipSVC"" ";
                 pw = @"/C powershell -Command ""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
-                System.Diagnostics.Process.Start("cmd.exe", clst);
-                System.Diagnostics.Process.Start("cmd.exe", pw);
-                System.Windows.Forms.MessageBox.Show("MC is uninstalled!");
+                System.Diagnostics.Process stvc = System.Diagnostics.Process.Start("cmd.exe", clst);
+                stvc.WaitForExit();
+                System.Diagnostics.Process unsmc = System.Diagnostics.Process.Start("cmd.exe", pw);
+                unsmc.WaitForExit();
+                int exitcode = unsmc.ExitCode;
+                if (exitcode == 0)
+                {
+                    System.Windows.Forms.MessageBox.Show("Minecraft is uninstalled successfully!");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Minecraft is failed to uninstall.");
+                }
             }
             if (messageboxresult == MessageBoxResult.Cancel)
             {
@@ -146,21 +142,7 @@ namespace BlueSky
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageboxresult = (MessageBoxResult)System.Windows.Forms.MessageBox.Show("Before install please enable Developer Mode first else the install will fail. Also, under anyway, this still in WIP, so bug may occurs. I highly recommends you to use Appx install instead.", "WARNING", (MessageBoxButtons)MessageBoxButton.OKCancel);
-
-            if (messageboxresult == MessageBoxResult.OK)
-            {
-                var messageresut = new System.Windows.Forms.FolderBrowserDialog();
-                System.Windows.Forms.DialogResult result = messageresut.ShowDialog();
-                var path = messageresut.SelectedPath;
-                System.Windows.Forms.MessageBox.Show("You Selected: " + path);
-                System.Diagnostics.Process.Start("powershell", "Add-AppxPackage -Path " + path + "AppxManifest.xml -Register");
-
-            }
-            if (messageboxresult == MessageBoxResult.Cancel)
-            {
-                System.Windows.Forms.MessageBox.Show("The operation is cancelled by user!");
-            }
+            System.Windows.Forms.MessageBox.Show("Not implemented!");
         }
 
         private void Button_Click9(object sender, RoutedEventArgs e)
@@ -182,6 +164,12 @@ namespace BlueSky
         {
             MCDownloader mcd1 = new MCDownloader();
             mcd1.Show();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            Timer tm = new Timer();
+            tm.Show();
         }
     }
 }
