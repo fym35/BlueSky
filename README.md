@@ -1,8 +1,11 @@
 # BlueSky
- Source code of BlueSky Launcher
+ BlueSky Launcher Source Code
  
- Compile: Visual Studio 2019 with .NET Frameworks/C# Installed
+ # What happened?
+ This repository has been considerd as Legacy. A new BlueSky Launcher is being worked on, that's mean this repository will not receving any updates. You can use this without my permission. Though you still have to give credits to me and everyone who worked on this project. Thanks.
  
- You can only contributre to BlueSky project though pull request. Since BlueSky still in development, any bugs should be in our Bug Tracker.
-
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ # Can I maintain this branch of BlueSky?
+ Sure, you can. Firstly, you can contact me at Discord first so I can verify you and also guide you though some part of the code. My Discord server can be found at my official Youtube channel. So make sure to take a look for it.
+ 
+ # Is Issues and Pull Request still accepted?
+ No. 
