@@ -9,3 +9,12 @@
  
  # Is Issues and Pull Request still accepted?
  No. 
+
+ # What happen if I still use BlueSky until now?
+ Nothing serious will happen, but you will no longer receive any future update. If you can, please head out to BlueSkyPlus once it was released.
+ 
+ # Can Microsoft strike this?
+ No.
+ 
+ # Can I make a video about this?
+ Yes, of course. But even if BlueSky Legacy is not supported anymore, that doesn't mean you will not have to provide proper credits.
