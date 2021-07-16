@@ -92,11 +92,6 @@ namespace BlueSky
         string devmodeturnedoff = File.ReadLines(AppDomain.CurrentDomain.BaseDirectory + "\\languages\\en-us.bslang").Skip(49).Take(50).First();
         string devsettingabout = File.ReadLines(AppDomain.CurrentDomain.BaseDirectory + "\\languages\\en-us.bslang").Skip(64).Take(65).First();
 
-        //Belongs to main UI
-        playbt.Content = playdb;
-        settingbt.Content = settingb;
-        aboutbt.Content = aboutb;
-        string abouttextf = abouttext_l1 + "\n" + abouttext_l2;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("DEBUG: ActionID 1");
