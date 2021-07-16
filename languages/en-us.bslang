@@ -1,0 +1,70 @@
+//#LANGUAGE FILE FOR BlueSky Launcher
+//#Language: English - Default Language (en-Us) - By ClickNin
+
+## Main UI
+
+Play (ClipSVC Mode)
+Settings
+About
+
+##Settings UI
+
+BlueSky Settings
+Developer
+Disable Developer Mode
+Enable Developer Mode
+Disable BlueSky Mode
+Disable ClipSVC Mode
+Uninstall Minecraft
+Install Minecraft
+Install Minecraft from an extracted package
+Minecraft Downloader (Experimental)
+
+##Developer Menu
+
+BlueSky Developer Menu
+Play (BlueSky Mode - Highly Experimental)
+Play (ClipSVC Injection)
+Play (New ClipSVC Experimental)
+
+##Minecraft Downloader
+
+BlueSky Minecraft Downloader
+Ready to download!
+Downloading stable version...
+Downloading beta version...
+Download completed successfully!
+Please check your internet connection!
+Latest Stable -
+Latest Beta -
+Download Stable
+Download Beta
+
+
+##MessageBox Dialog
+
+//Line 1 of About Dialog
+BlueSky Launcher
+//Line 2 of About Dialog
+By ClickNin
+//END OF ABOUT DIALOG
+Developer Mode is turned off!
+Not implemented!
+ClipSVC Mode is disabled!
+Appx File (*.appx)
+MSIX File (*.msix)
+The operation is cancelled.
+Minecraft installed successfully!
+Minecraft failed to install! Possibly due to unsupported Windows version, corrupted or damaged APPX package. Please download Minecraft package from Minecraft Downloader and try again.
+You Selected:
+Install Minecraft?
+Are you sure you want to uninstall Minecraft? This will delete all of your DATA! Include worlds, resource pack, addons and skinpack.
+Uninstall Minecraft?
+Minecraft is uninstalled successfully!
+Minecraft is failed to uninstall!
+Developer Mode is turned on!
+Developer Settings is some sort of experimetal game unlock method.
+
+
+#### HOW TO TRANSLATE BLUESKY TO YOUR NATIVE LANGUAGE?
+Well, this is very easy, replace each line with your own language text, and save the file. When BlueSky start, you'll see the BlueSky is translated!

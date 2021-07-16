@@ -18,7 +18,6 @@
         <Button Content="Play (BlueSky Mode - Highly experimental)" HorizontalAlignment="Left" Margin="50,131,0,0" VerticalAlignment="Top" Width="467" Height="45" Click="Button_Click_1"/>
         <Button Content="Play (BlueSky Mode - SetACL experiment)" HorizontalAlignment="Left" Margin="50,231,0,0" VerticalAlignment="Top" Width="467" Height="45" Click="Button_Click_3"/>
         <Button Content="Play (ClipSVC - Experiment)" HorizontalAlignment="Left" Margin="50,181,0,0" VerticalAlignment="Top" Width="467" Height="45" Click="Button_Click_2"/>
-        <Label Content="Before you do anything related to Developer, I want to point out that&#xD;&#xA;those features ARE experimental features and code may not have &#xD;&#xA;properly tested. Please close this window and use default&#xD;&#xA;ClipSVC mode for a flawlessly gameplay. If you want to help BlueSky's &#xD;&#xA;development, you may accepted to the risk of trying those." HorizontalAlignment="Left" Margin="100,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="379" Height="100"/>
     </Grid>
 
 </Window>

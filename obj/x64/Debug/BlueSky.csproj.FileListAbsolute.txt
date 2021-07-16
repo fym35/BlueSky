@@ -57,3 +57,4 @@ E:\BlueSky Launcher\BlueSky\BlueSky\bin\x64\Debug\System.Management.Automation.d
 E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\BlueSky.csproj.CopyComplete
 E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\Timer.g.cs
 E:\BlueSky Launcher\BlueSky\BlueSky\obj\x64\Debug\Timer.baml
+E:\BlueSky Launcher\BlueSky\BlueSky\bin\x64\Debug\languages\en-us.bslang

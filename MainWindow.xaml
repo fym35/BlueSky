@@ -13,9 +13,9 @@
             <ColumnDefinition Width="67*"/>
         </Grid.ColumnDefinitions>
         <Image Margin="129,58,66,231" Source="bluesky-logo-by-tech-archives.png"/>
-        <Button x:Name="Play_Copy" Content="Play (ClipSVC)" Margin="171,258,105,166" Click="Button_Click1"/>
-        <Button Content="About" Margin="609,416,23,10" Click="Button_Click" Grid.ColumnSpan="2" />
-        <Button Content="Settings" Margin="10,416,588,10" Click="Button_Click_1"/>
+        <Button x:Name="playbt" Content="Play (ClipSVC)" Margin="171,258,105,166" Click="Button_Click1"/>
+        <Button x:Name="aboutbt" Content="About" Margin="609,416,23,10" Click="Button_Click" Grid.ColumnSpan="2" />
+        <Button x:Name="settingbt" Content="Settings" Margin="10,416,588,10" Click="Button_Click_1"/>
     </Grid>
     <Window.Background>
         <ImageBrush ImageSource="bs-bg.jpg" Stretch="UniformToFill" />

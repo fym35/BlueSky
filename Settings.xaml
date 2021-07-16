@@ -8,18 +8,18 @@
         Title="Settings" Height="480" Width="640"
         ResizeMode="NoResize">
     <Grid>
-        <Label Content="Settings For Bluesky" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label x:Name="settinglabel" Content="Settings For Bluesky" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="48"/>
         <Grid Margin="125,160,125,75">
-            <Button Content="Enable Developer Mode" HorizontalAlignment="Center" Height="35" Margin="0,50,0,0" VerticalAlignment="Top" Width="351" Click="Button_Click9"/>
-            <Button Content="Disable Developer Mode" HorizontalAlignment="Center" Height="35" Margin="0,10,0,0" VerticalAlignment="Top" Width="351" Click="Button_Click"/>
-            <Button Content="Restore System (BlueSky)" HorizontalAlignment="Center" Margin="0,90,178,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_2"/>
-            <Button Content="Disable ClipSVC Exploit" HorizontalAlignment="Center" Margin="178,90,0,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_3"/>
-            <Button Content="Install MC" HorizontalAlignment="Center" Margin="178,130,0,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_4"/>
-            <Button Content="Uninstall MC" HorizontalAlignment="Center" Margin="0,130,178,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_5"/>
-            <Button Content="Install MC from an extracted APPX bundle" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="351" Height="35" Click="Button_Click_6"/>
+            <Button x:Name="enadevm" Content="Enable Developer Mode" HorizontalAlignment="Center" Height="35" Margin="0,50,0,0" VerticalAlignment="Top" Width="351" Click="Button_Click9"/>
+            <Button x:Name="disdevm" Content="Disable Developer Mode" HorizontalAlignment="Center" Height="35" Margin="0,10,0,0" VerticalAlignment="Top" Width="351" Click="Button_Click"/>
+            <Button x:Name="restoresys" Content="Restore System (BlueSky)" HorizontalAlignment="Center" Margin="0,90,178,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_2"/>
+            <Button x:Name="dishack" Content="Disable ClipSVC Exploit" HorizontalAlignment="Center" Margin="178,90,0,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_3"/>
+            <Button x:Name="insmc" Content="Install MC" HorizontalAlignment="Center" Margin="178,130,0,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_4"/>
+            <Button x:Name="unsmc" Content="Uninstall MC" HorizontalAlignment="Center" Margin="0,130,178,0" VerticalAlignment="Top" Width="173" Height="35" Click="Button_Click_5"/>
+            <Button x:Name="incmc2" Content="Install MC from an extracted APPX bundle" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="351" Height="35" Click="Button_Click_6"/>
         </Grid>
-        <Button Content="Developer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Height="24" Click="Button_Click_1"/>
-        <Button Content="Minecraft Downloader (Experimental)" HorizontalAlignment="Center" Margin="140,381,142,0" VerticalAlignment="Top" Width="352" Height="35" Click="Button_Click_9"/>
+        <Button x:Name="developerbutton" Content="Developer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Height="24" Click="Button_Click_1"/>
+        <Button x:Name="mcdownload" Content="Minecraft Downloader (Experimental)" HorizontalAlignment="Center" Margin="140,381,142,0" VerticalAlignment="Top" Width="352" Height="35" Click="Button_Click_9"/>
     </Grid>
 
     <Window.Background>
