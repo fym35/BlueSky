@@ -13,13 +13,7 @@ jobs:
      
     - name: MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
-       
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
-     
-    - name: Restore NuGet Packages
-      run: nuget restore SimpleFrameworkApp.sln
- 
+      
     - name: Build 
       run: msbuild BlueSky.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
