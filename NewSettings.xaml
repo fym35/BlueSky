@@ -1,0 +1,31 @@
+﻿<Window x:Class="BlueSky.NewSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlueSky"
+        mc:Ignorable="d"
+        Title="BlueSky Launcher Settings" Height="450" Width="800"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize">
+    <Grid Margin="0,0,0,-31">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="clevereaster" Content="BlueSky Launcher Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="364" FontSize="18" Height="34"/>
+        <Label Content="* Basic Settings&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;* In Game&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;* Developer&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;* Advanced&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;BlueSky Launcher has been made by Click!Go Studios.&#xD;&#xA;This is 8th Beta of the launcher, versioning 0.8b - Special Release.&#xD;&#xA;&#xD;&#xA;Status: Open Source&#xD;&#xA;Visit my Discord Server and my Youtube channel too!" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="646" Height="365"/>
+        <ProgressBar x:Name="progressbar" HorizontalAlignment="Center" Height="15" Margin="0,269,0,0" VerticalAlignment="Top" Width="780"/>
+        <Label x:Name="progresslab" Content="Do something!" HorizontalContentAlignment="Center" Margin="0,263,18,0" VerticalAlignment="Top" Height="26"/>
+        <Button x:Name="installmcbtn" Content="Install Minecraft" HorizontalAlignment="Left" Margin="22,87,0,0" VerticalAlignment="Top" Width="132" Click="installmcbtn_Click" Height="20"/>
+        <Button x:Name="uninstallmcbtn" Content="Uninstall Minecraft" HorizontalAlignment="Left" Margin="159,87,0,0" VerticalAlignment="Top" Width="132" Height="20"/>
+        <Button x:Name="wipealldatabtn" Content="Wipe all data" HorizontalAlignment="Left" Margin="22,134,0,0" VerticalAlignment="Top" Width="141" Height="20"/>
+        <Button x:Name="wiperscpackbtn" Content="Wipe all resource pack" HorizontalAlignment="Left" Margin="168,134,0,0" VerticalAlignment="Top" Width="165" Height="20"/>
+        <Button x:Name="wipeallbhpckbtn" Content="Wipe all behavour packs" HorizontalAlignment="Left" Margin="338,134,0,0" VerticalAlignment="Top" Width="157" Height="20"/>
+        <Button x:Name="wipeallsettingsbtn" Content="Wipe all settings" HorizontalAlignment="Left" Margin="500,134,0,0" VerticalAlignment="Top" Width="156" Height="20"/>
+        <Button x:Name="offlicensebtn" Content="Offline License Patch Mode" HorizontalAlignment="Left" Margin="22,183,0,0" VerticalAlignment="Top" Width="179" Height="20"/>
+        <Button x:Name="disclipsvc" Content="Disable ClipSVC Exploit" HorizontalAlignment="Left" Margin="22,232,0,0" VerticalAlignment="Top" Width="179" Height="20"/>
+        <Button x:Name="restorewindowsbtn" Content="Restore WindowsFS" HorizontalAlignment="Left" Margin="206,232,0,0" VerticalAlignment="Top" Width="168" Height="20"/>
+
+    </Grid>
+</Window>

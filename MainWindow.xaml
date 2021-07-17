@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlueSky"
         mc:Ignorable="d"
-        Title="BlueSky Launcher Beta 7 Version 0.7a"
-        ResizeMode="NoResize" Height="489">
+        Title="BlueSky Launcher Beta 8 Version 0.8b (Special Release)"
+        ResizeMode="CanResizeWithGrip" Height="489" Width="801">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="746*"/>
-            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
-        <Image Margin="129,58,66,231" Source="bluesky-logo-by-tech-archives.png"/>
-        <Button x:Name="playbt" Content="Play (ClipSVC)" Margin="171,258,105,166" Click="Button_Click1"/>
-        <Button x:Name="aboutbt" Content="About" Margin="609,416,23,10" Click="Button_Click" Grid.ColumnSpan="2" />
-        <Button x:Name="settingbt" Content="Settings" Margin="10,416,588,10" Click="Button_Click_1"/>
+        <Image Margin="129,58,9,231" Source="bluesky-logo-by-tech-archives.png" Grid.ColumnSpan="2"/>
+        <Button x:Name="playbt" Content="Start Minecraft" Margin="36,258,48,166" Click="Button_Click1" Grid.Column="1"/>
+        <Button x:Name="aboutbt" Content="About" Margin="474,416,23,10" Click="Button_Click" Grid.ColumnSpan="3" Grid.Column="1" />
+        <Button x:Name="settingbt" Content="Settings" Margin="10,416,531,10" Click="Button_Click_1" Grid.ColumnSpan="2"/>
     </Grid>
     <Window.Background>
         <ImageBrush ImageSource="bs-bg.jpg" Stretch="UniformToFill" />

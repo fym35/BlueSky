@@ -71,6 +71,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\MCENTRES LAUNCHER\beta_1.2.1\System.Management.Automation.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,8 +94,14 @@
     <Compile Include="DevCheck.xaml.cs">
       <DependentUpon>DevCheck.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainUI.xaml.cs">
+      <DependentUpon>MainUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MCDownloader.xaml.cs">
       <DependentUpon>MCDownloader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewSettings.xaml.cs">
+      <DependentUpon>NewSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
@@ -107,6 +114,10 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="DevCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,6 +134,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MCDownloader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,9 +219,12 @@
     <Resource Include="bg.jpg" />
     <Resource Include="bluesky-logo-by-tech-archives.png" />
     <Resource Include="bs-bg.jpg" />
+    <Resource Include="dirt.png" />
     <Content Include="grant.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="hh.png" />
+    <Resource Include="icons8-x-coordinate-32.png" />
     <Content Include="x64\Windows.ApplicationModel.Store.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
