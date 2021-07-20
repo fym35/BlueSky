@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BlueSkyNew/1.0.0": {
+        "dependencies": {
+          "System.Management.Automation": "3.0.0.0"
+        },
+        "runtime": {
+          "BlueSkyNew.dll": {}
+        }
+      },
+      "System.Management.Automation/3.0.0.0": {
+        "runtime": {
+          "System.Management.Automation.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "10.0.18362.752"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BlueSkyNew/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Management.Automation/3.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
