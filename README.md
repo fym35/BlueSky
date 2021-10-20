@@ -15,4 +15,4 @@
  Every client in DLL form are supported. Including Horizon, Onix, Project Star, etc.
  
  # Is BlueSky illegal?
- On Microsoft side, I think yes, but BlueSky itself doesn't crack the game, instead, BlueSky do a bunch of different tricks in order to make Minecraft "thinks" that you are own the game, and you can even did it yourself without any tool. So BlueSky are completely legal.
+ Technically, yes, since BlueSky allow you to play Minecraft without have to pay. But on other side, BlueSky actually doesn't crack the game! It just does a bunch of different system-related tricks to make Minecraft "think" that you are currently own the game. Either, what do you expect on a launcher anyway?
