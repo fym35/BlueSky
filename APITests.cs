@@ -65,5 +65,10 @@ namespace BlueSkyNew
         {
             rAPI.launch(11, 3, 45, progressBar1, label2);
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            rAPI.ws();
+        }
     }
 }

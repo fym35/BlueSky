@@ -225,6 +225,18 @@ namespace BlueSkyNew.API
                 pbar.Style = ProgressBarStyle.Blocks;
                 pbar.MarqueeAnimationSpeed = 0;
                 label.Text = "Done!";
+                Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
+                mc.WaitForExit();
+                mc.Exited += ProcessEnded;
+                ws();
+                string disable = AppDomain.CurrentDomain.BaseDirectory + "Assets/DISABLE.reg";
+                Process regeditProcess = Process.Start("regedit.exe", "/s \"" + disable + "\"");
+                regeditProcess.WaitForExit();
+                ServiceController serviceController = new ServiceController("ClipSVC");
+                if (serviceController.Status != ServiceControllerStatus.Running)
+                {
+                    serviceController.Start();
+                }
             }
             else if (method == 2)
             {
@@ -497,7 +509,24 @@ namespace BlueSkyNew.API
 
         public static void takeperm(string path)
         {
-            Process.Start("cmd.exe", "/k takeown /f " + path + " && icacls " + path + " /grant \"" + Environment.UserName + "\":F");
+            ProcessStartInfo info = new ProcessStartInfo("cmd.exe");
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.Arguments = "/K /C takeown /f " + path + " && icacls " + path + " /grant \"" + Environment.UserName + "\":F";
+            Process.Start(info);
+        }
+
+        public static void ws()
+        {
+            Process[] processesByName = Process.GetProcessesByName("ApplicationFrameHost");
+            for (int m = 0; m < processesByName.Length; m++)
+            {
+                processesByName[m].Kill();
+            }
+            Process[] processesByName1 = Process.GetProcessesByName("RuntimeBroker");
+            for (int m = 0; m < processesByName1.Length; m++)
+            {
+                processesByName1[m].Kill();
+            }
         }
     }
 }
