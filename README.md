@@ -20,3 +20,5 @@
  # Development
  BlueSky's source code overall is hard to read, specially if you are a experienced developer. Due to that reason, a new simple, flexible and nice API is in development. Introduce BlueSky API! BlueSky API make it easier to tinkering with the source code. You can easily tweak it yourself without any complex line of codes, just one function with some of arguments and you are all set. To get started with the API itself, heads to Wiki to get started.
  
+ # I'm I allowed to edit and pulish BlueSky at a custom build?
+ BlueSky is licensed with BSD 2-Clause "Simplified" License license. That mean you have complete permissions to modify BlueSky for either commercial use, custom distribution and private use but whatever you do, you have to keep the license.
