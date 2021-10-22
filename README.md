@@ -18,5 +18,5 @@
  Technically, yes, since BlueSky allow you to play Minecraft without have to pay. But on other side, BlueSky actually doesn't crack the game! It just does a bunch of different system-related tricks to make Minecraft "think" that you are currently own the game. Either, what do you expect on a launcher anyway?
  
  # Development
- BlueSky's source code overall is hard to read, specially if you are a experienced developer. Due to that reason, a new simple, flexible and nice API is in development. Introduce BlueSky API! BlueSky API make it easier to tinkering with the source code. You can easily tweak it yourself without any complex line of codes, just one function with some of arguments and you are all set. To get started with the API itself, heads to Wiki (the API is not available right now, but probably in a future commit).
+ BlueSky's source code overall is hard to read, specially if you are a experienced developer. Due to that reason, a new simple, flexible and nice API is in development. Introduce BlueSky API! BlueSky API make it easier to tinkering with the source code. You can easily tweak it yourself without any complex line of codes, just one function with some of arguments and you are all set. To get started with the API itself, heads to Wiki to get started.
  
