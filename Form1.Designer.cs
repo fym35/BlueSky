@@ -51,8 +51,10 @@ namespace BlueSkyNew
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(-1, 361);
+            this.progressBar1.MarqueeAnimationSpeed = 0;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(773, 15);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 1;
             // 
             // label1

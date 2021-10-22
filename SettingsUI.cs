@@ -53,7 +53,7 @@ namespace BlueSkyNew
                 }
                 else
                 {
-                    label5.Text = "Package failed to install! Error code 0002";
+                    label5.Text = "Package failed to install! Error code PKG_INSTALL_FAILED";
                     EnableAllButton();
                 }
             }
@@ -127,7 +127,7 @@ namespace BlueSkyNew
                 else
                 {
                         progressBar1.Value = 100;
-                        label5.Text = "Package failed to uninstall! Error code 0005";
+                        label5.Text = "Package failed to uninstall! Error code PKG_UNINSTALL_FAILED";
                         EnableAllButton();
                 }
             }
@@ -174,7 +174,7 @@ namespace BlueSkyNew
             else
             {
                 progressBar1.Value = 100;
-                label5.Text = "Minecraft still running! Please close your Minecraft session first before disable the exploit! Error code 0006";
+                label5.Text = "Minecraft still running! Please close your Minecraft session first before disable the exploit! Error code MC_RUNNING";
                 EnableAllButton();
             }
         }

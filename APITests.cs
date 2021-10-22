@@ -30,7 +30,7 @@ namespace BlueSkyNew
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int test = rAPI.notice_ask("Press ok for 1, press cancel for 2");
+            int test = rAPI.notice_ask("test", "Press ok for 1, press cancel for 2");
             if (test == 1)
             {
                 rAPI.notice("you pressed ok"); 
@@ -39,6 +39,11 @@ namespace BlueSkyNew
             {
                 rAPI.notice("you pressed cancel");
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            rAPI.uninstallmc(progressBar1, label2);
         }
     }
 }
