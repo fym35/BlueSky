@@ -319,16 +319,8 @@ namespace BlueSkyNew.API
                     label.Text = "Done!";
                     if (extMC != 0)
                     {
-                        Process[] processesByName3 = Process.GetProcessesByName("ApplicationFrameHost");
-                        for (int m = 0; m < processesByName3.Length; m++)
-                        {
-                            processesByName3[m].Kill();
-                        }
-                        Process[] processesByName13 = Process.GetProcessesByName("RuntimeBroker");
-                        for (int m = 0; m < processesByName13.Length; m++)
-                        {
-                            processesByName13[m].Kill();
-                        }
+                        ws();
+                        await KillRB();
                         label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
                         File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
                         File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
@@ -339,16 +331,8 @@ namespace BlueSkyNew.API
                     }
                     else
                     {
-                        Process[] processesByName4 = Process.GetProcessesByName("ApplicationFrameHost");
-                        for (int m = 0; m < processesByName4.Length; m++)
-                        {
-                            processesByName4[m].Kill();
-                        }
-                        Process[] processesByName14 = Process.GetProcessesByName("RuntimeBroker");
-                        for (int m = 0; m < processesByName14.Length; m++)
-                        {
-                            processesByName14[m].Kill();
-                        }
+                        ws();
+                        await KillRB();
                         label.Text = "Minecraft closed successfully, rolling back...";
                         File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
                         File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
@@ -372,16 +356,8 @@ namespace BlueSkyNew.API
                     label.Text = "Done!";
                     if (extMC != 0)
                     {
-                        Process[] processesByName5 = Process.GetProcessesByName("ApplicationFrameHost");
-                        for (int m = 0; m < processesByName5.Length; m++)
-                        {
-                            processesByName5[m].Kill();
-                        }
-                        Process[] processesByName15 = Process.GetProcessesByName("RuntimeBroker");
-                        for (int m = 0; m < processesByName15.Length; m++)
-                        {
-                            processesByName15[m].Kill();
-                        }
+                        ws();
+                        await KillRB();
                         label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
                         File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
                         File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
@@ -392,16 +368,8 @@ namespace BlueSkyNew.API
                     }
                     else
                     {
-                        Process[] processesByName6 = Process.GetProcessesByName("ApplicationFrameHost");
-                        for (int m = 0; m < processesByName6.Length; m++)
-                        {
-                            processesByName6[m].Kill();
-                        }
-                        Process[] processesByName16 = Process.GetProcessesByName("RuntimeBroker");
-                        for (int m = 0; m < processesByName16.Length; m++)
-                        {
-                            processesByName16[m].Kill();
-                        }
+                        ws();
+                        await KillRB(); 
                         label.Text = "Minecraft closed successfully, rolling back...";
                         File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
                         File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
@@ -526,6 +494,19 @@ namespace BlueSkyNew.API
             for (int m = 0; m < processesByName1.Length; m++)
             {
                 processesByName1[m].Kill();
+            }
+        }
+
+        public static void desvc()
+        {
+            ws();
+            string disable = AppDomain.CurrentDomain.BaseDirectory + "Assets/DISABLE.reg";
+            Process regeditProcess = Process.Start("regedit.exe", "/s \"" + disable + "\"");
+            regeditProcess.WaitForExit();
+            ServiceController serviceController = new ServiceController("ClipSVC");
+            if (serviceController.Status != ServiceControllerStatus.Running)
+            {
+                serviceController.Start();
             }
         }
     }
