@@ -45,5 +45,25 @@ namespace BlueSkyNew
         {
             rAPI.uninstallmc(progressBar1, label2);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            rAPI.notice("This is a testing GUI to test various BlueSky API functions.");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            rAPI.launch(11, 0, 45, progressBar1, label2);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            rAPI.launch(11, 2, 45, progressBar1, label2);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            rAPI.launch(11, 3, 45, progressBar1, label2);
+        }
     }
 }
