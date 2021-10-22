@@ -4,10 +4,14 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net48-windows7.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>C:\Users\cn\Downloads\icons8-minecraft-creeper-48.ico</ApplicationIcon>
+    <ApplicationIcon>icons8-minecraft-creeper-48.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icons8-minecraft-creeper-48.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Toolkit.Forms.UI.Controls.WebView" Version="6.1.2" />
@@ -16,7 +20,7 @@
   <ItemGroup>
     <Reference Include="PresentationFramework" />
     <Reference Include="System.Management.Automation">
-      <HintPath>..\..\..\Downloads\Release\System.Management.Automation.dll</HintPath>
+      <HintPath>C:\Users\ClickNin\Downloads\bluesky-beta-9-early-access\System.Management.Automation.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows" />
@@ -49,9 +53,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\ENABLE.reg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\xblive_patch.EXE">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

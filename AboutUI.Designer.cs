@@ -31,7 +31,6 @@ namespace BlueSkyNew
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutUI));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,23 +48,13 @@ namespace BlueSkyNew
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Minecraft Ten", 11.25F);
-            this.label3.Location = new System.Drawing.Point(65, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(263, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Beta 8 Version 0.8  PRE TESTING #2";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Minecraft Ten", 27.75F);
-            this.label2.Location = new System.Drawing.Point(61, 8);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F);
+            this.label2.Location = new System.Drawing.Point(67, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(347, 37);
+            this.label2.Size = new System.Drawing.Size(323, 42);
             this.label2.TabIndex = 6;
             this.label2.Text = "BlueSky Launcher";
             // 
@@ -117,7 +106,6 @@ namespace BlueSkyNew
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -134,7 +122,6 @@ namespace BlueSkyNew
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;

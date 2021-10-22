@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "tUITKR/62ssafknniLGNmPG4/UXMJFgMoynvvIMdeeHQAQJRj1umtJiQIHc0H0dl8TicciXweGFcQQGNshikUg==",
+  "dgSpecHash": "Fntajy6Z1ydTiDFnzp4aIbMK+oN9IATaLnAf4qvihg5YNeKkovV2bG6/gktqR/9PFXgEHe8vg26oQ+xz9qOBMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cn\\source\\repos\\BlueSkyNew\\BlueSkyNew.csproj",
+  "projectFilePath": "E:\\BlueSky Launcher\\BlueSkyNew\\BlueSkyNew.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cn\\.nuget\\packages\\microsoft.toolkit.forms.ui.controls.webview\\6.1.2\\microsoft.toolkit.forms.ui.controls.webview.6.1.2.nupkg.sha512",
-    "C:\\Users\\cn\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.18362.2005\\microsoft.windows.sdk.contracts.10.0.18362.2005.nupkg.sha512",
-    "C:\\Users\\cn\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
-    "C:\\Users\\cn\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512"
+    "C:\\Users\\ClickNin\\.nuget\\packages\\microsoft.toolkit.forms.ui.controls.webview\\6.1.2\\microsoft.toolkit.forms.ui.controls.webview.6.1.2.nupkg.sha512",
+    "C:\\Users\\ClickNin\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.18362.2005\\microsoft.windows.sdk.contracts.10.0.18362.2005.nupkg.sha512",
+    "C:\\Users\\ClickNin\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
+    "C:\\Users\\ClickNin\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512"
   ],
   "logs": []
 }
