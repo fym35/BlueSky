@@ -434,7 +434,7 @@ namespace BlueSkyNew.API
             }
             else
             {
-                notice("Minecraft is not installed!");
+                notice("Minecraft is not installed! Please install Minecraft trial from Microsoft Store or from BlueSky's Installer.");
             }
         }
 
