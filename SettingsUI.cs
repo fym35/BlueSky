@@ -28,43 +28,28 @@ namespace BlueSkyNew
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            rAPI.installmc(progressBar1, label5);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            rAPI.uninstallmc(progressBar1, label5);
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
-        
         private void button4_Click(object sender, EventArgs e)
         {
-
+            rAPI.desvc();
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
             APITests apitest = new APITests();
             apitest.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            rAPI.ws();
         }
     }
 }

@@ -42,7 +42,6 @@ E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\ENABLE.reg
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.exe.config
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.exe
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.pdb
-E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Microsoft.Toolkit.Forms.UI.Controls.WebView.dll
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\System.Management.Automation.dll
 E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.CopyComplete
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\1.reg
@@ -52,3 +51,4 @@ E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAs
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1086.dll
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1164.dll
 E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1186.dll
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Windows.winmd

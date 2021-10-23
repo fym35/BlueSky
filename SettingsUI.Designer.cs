@@ -37,9 +37,8 @@ namespace BlueSkyNew
             this.button4 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -107,26 +106,6 @@ namespace BlueSkyNew
             this.label5.TabIndex = 19;
             this.label5.Text = "Ready";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(170, 156);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 41);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Enable Developer Mode";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(328, 156);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(152, 41);
-            this.button11.TabIndex = 22;
-            this.button11.Text = "Disable Developer Mode";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(12, 234);
@@ -137,14 +116,23 @@ namespace BlueSkyNew
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(170, 156);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(152, 41);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Block Unrequired Task";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // SettingsUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 427);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button11);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button4);
@@ -170,8 +158,7 @@ namespace BlueSkyNew
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
     }
 }

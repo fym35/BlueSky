@@ -61,38 +61,46 @@ namespace BlueSkyNew.API
 
         public static async void installmc(System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
-            pbarm = pbar;
-            labelm = label;
-            System.Windows.Forms.OpenFileDialog mcpck = new System.Windows.Forms.OpenFileDialog();
-            mcpck.DefaultExt = ".appx";
-            mcpck.Filter = "Appx File (*.appx)|*.appx|MSIX File (*.msix)|*.msix";
-            mcpck.ShowDialog();
-            string PCKPath = mcpck.FileName;
-            if (PCKPath.Length != 0)
+            int inst = checkmc();
+            if (inst == 1)
             {
-                pbar.Value = 0;
-                label.Text = "Installing package...";
-                PowerShell ps = PowerShell.Create();
-                ps.AddCommand("Add-AppxPackage");
-                ps.AddParameter("Path", PCKPath);
-                ps.Streams.Error.DataAdded += Error_DataAdded;
-                ps.Streams.Progress.DataAdded += Progress_DataAdded;
-                await Task.Run(delegate ()
+                pbarm = pbar;
+                labelm = label;
+                System.Windows.Forms.OpenFileDialog mcpck = new System.Windows.Forms.OpenFileDialog();
+                mcpck.DefaultExt = ".appx";
+                mcpck.Filter = "Appx File (*.appx)|*.appx|MSIX File (*.msix)|*.msix";
+                mcpck.ShowDialog();
+                string PCKPath = mcpck.FileName;
+                if (PCKPath.Length != 0)
                 {
-                    ps.Invoke();
-                });
-                if (!ps.HadErrors)
-                {
-                    label.Text = "Package installed successfully!";
+                    pbar.Value = 0;
+                    label.Text = "Installing package...";
+                    PowerShell ps = PowerShell.Create();
+                    ps.AddCommand("Add-AppxPackage");
+                    ps.AddParameter("Path", PCKPath);
+                    ps.Streams.Error.DataAdded += Error_DataAdded;
+                    ps.Streams.Progress.DataAdded += Progress_DataAdded;
+                    await Task.Run(delegate ()
+                    {
+                        ps.Invoke();
+                    });
+                    if (!ps.HadErrors)
+                    {
+                        label.Text = "Package installed successfully!";
+                    }
+                    else
+                    {
+                        label.Text = "Package failed to install! Error code PKG_INSTALL_FAILED";
+                    }
                 }
                 else
                 {
-                    label.Text = "Package failed to install! Error code PKG_INSTALL_FAILED";
+                    notice("Operation cancelled!");
                 }
             }
             else
             {
-                notice("Operation cancelled!");
+                notice("Minecraft is installed!");
             }
         }
 
@@ -140,34 +148,42 @@ namespace BlueSkyNew.API
 
         public static async void installmcspec(string appx, System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
-            pbarm = pbar;
-            labelm = label;
-            string PCKPath = appx;
-            if (PCKPath.Length != 0)
+            int inst = checkmc();
+            if (inst == 2)
             {
-                pbar.Value = 0;
-                label.Text = "Installing package...";
-                PowerShell ps = PowerShell.Create();
-                ps.AddCommand("Add-AppxPackage");
-                ps.AddParameter("Path", PCKPath);
-                ps.Streams.Error.DataAdded += Error_DataAdded;
-                ps.Streams.Progress.DataAdded += Progress_DataAdded;
-                await Task.Run(delegate ()
+                pbarm = pbar;
+                labelm = label;
+                string PCKPath = appx;
+                if (PCKPath.Length != 0)
                 {
-                    ps.Invoke();
-                });
-                if (!ps.HadErrors)
-                {
-                    label.Text = "Package installed successfully!";
+                    pbar.Value = 0;
+                    label.Text = "Installing package...";
+                    PowerShell ps = PowerShell.Create();
+                    ps.AddCommand("Add-AppxPackage");
+                    ps.AddParameter("Path", PCKPath);
+                    ps.Streams.Error.DataAdded += Error_DataAdded;
+                    ps.Streams.Progress.DataAdded += Progress_DataAdded;
+                    await Task.Run(delegate ()
+                    {
+                        ps.Invoke();
+                    });
+                    if (!ps.HadErrors)
+                    {
+                        label.Text = "Package installed successfully!";
+                    }
+                    else
+                    {
+                        label.Text = "Package failed to install! Error code PKG_INSTALL_FAILED";
+                    }
                 }
                 else
                 {
-                    label.Text = "Package failed to install! Error code PKG_INSTALL_FAILED";
+                    notice("Operation cancelled!");
                 }
             }
             else
             {
-                notice("Operation cancelled!");
+                notice("Minecraft is installed!");
             }
         }
 
@@ -186,216 +202,239 @@ namespace BlueSkyNew.API
 
         public static void uninstallmc(System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
-            int ask = notice_ask("Warning", "Do you want to uninstall Minecraft? This will also delete all of your worlds, resources pack, behavior pack and stuff!");
-            if (ask == 1)
+            int inst = checkmc();
+            if (inst == 2)
             {
-                pbar.Value = 0;
-                label.Text = "Uninstalling...";
-                pbar.Value = 50;
-                string uns = @"/C powershell -Command ""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
-                System.Diagnostics.Process uninstall = System.Diagnostics.Process.Start("CMD.exe", uns);
-                uninstall.WaitForExit();
-                int errCode = uninstall.ExitCode;
-                if (errCode == 0)
+                int ask = notice_ask("Warning", "Do you want to uninstall Minecraft? This will also delete all of your worlds, resources pack, behavior pack and stuff!");
+                if (ask == 1)
                 {
-                    pbar.Value = 100;
-                    label.Text = "Package uninstalled successfully!";
+                    pbar.Value = 0;
+                    label.Text = "Uninstalling...";
+                    pbar.Value = 50;
+                    /*
+                    string uns = @"/C powershell -Command ""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
+                    System.Diagnostics.Process uninstall = System.Diagnostics.Process.Start("CMD.exe", uns);\
+                    uninstall.WaitForExit();
+                    */
+                    ProcessStartInfo info = new ProcessStartInfo("cmd.exe");
+                    info.WindowStyle = ProcessWindowStyle.Hidden;
+                    info.Arguments = @"/K /C powershell -Command""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
+                    System.Diagnostics.Process uns = Process.Start(info);
+                    uns.WaitForExit();
+                    int errCode = uns.ExitCode;
+                    if (errCode == 0)
+                    {
+                        pbar.Value = 100;
+                        label.Text = "Package uninstalled successfully!";
+                    }
+                    else
+                    {
+                        pbar.Value = 100;
+                        label.Text = "Package failed to uninstall! Error code PKG_UNINSTALL_FAILED";
+                    }
                 }
                 else
                 {
-                    pbar.Value = 100;
-                    label.Text = "Package failed to uninstall! Error code PKG_UNINSTALL_FAILED";
+                    notice("Operation Cancelled!");
                 }
             }
             else
             {
-                notice("Operation Cancelled!");
+                notice("Minecraft is not installed!");
             }
         }
 
         public static async void launch(int winver, int method, int timeout, System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
-            pbar.Style = ProgressBarStyle.Marquee;
-            pbar.MarqueeAnimationSpeed = 50;
-            if (method == 0)
+            int inst = checkmc();
+            if (inst == 2)
             {
-                label.Text = "Launching...";
-                await Prepare();
-                await GetRidService();
-                await LaunchProtocol();
-                await KillRB();
-                await Task.Delay(timeout);
-                pbar.Style = ProgressBarStyle.Blocks;
-                pbar.MarqueeAnimationSpeed = 0;
-                label.Text = "Done!";
-                Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
-                mc.WaitForExit();
-                mc.Exited += ProcessEnded;
-                ws();
-                string disable = AppDomain.CurrentDomain.BaseDirectory + "Assets/DISABLE.reg";
-                Process regeditProcess = Process.Start("regedit.exe", "/s \"" + disable + "\"");
-                regeditProcess.WaitForExit();
-                ServiceController serviceController = new ServiceController("ClipSVC");
-                if (serviceController.Status != ServiceControllerStatus.Running)
+                pbar.Style = ProgressBarStyle.Marquee;
+                pbar.MarqueeAnimationSpeed = 50;
+                if (method == 0)
                 {
-                    serviceController.Start();
-                }
-            }
-            else if (method == 2)
-            {
-                label.Text = "Launching...";
-                //at1
-                string reganti2 = AppDomain.CurrentDomain.BaseDirectory + "Assets/1.reg";
-                Process regeditProcess2 = Process.Start("regedit.exe", "/s \"" + reganti2 + "\"");
-                regeditProcess2.WaitForExit();
-                //at2
-                string reganti3 = AppDomain.CurrentDomain.BaseDirectory + "Assets/2.reg";
-                Process regeditProcess3 = Process.Start("regedit.exe", "/s \"" + reganti3 + "\"");
-                regeditProcess3.WaitForExit();
-                //at3
-                string reganti4 = AppDomain.CurrentDomain.BaseDirectory + "Assets/3.reg";
-                Process regeditProcess4 = Process.Start("regedit.exe", "/s \"" + reganti4 + "\"");
-                regeditProcess4.WaitForExit();
-                //disable a service
-                ServiceController serviceController2 = new ServiceController("dmwappushservice");
-                if (serviceController2.Status == ServiceControllerStatus.Running)
-                {
-                    serviceController2.Stop();
-                }
-                //debloat uwp a bit
-                Process[] processesByName = Process.GetProcessesByName("ApplicationFrameHost");
-                for (int m = 0; m < processesByName.Length; m++)
-                {
-                    processesByName[m].Kill();
-                }
-                Process[] processesByName1 = Process.GetProcessesByName("RuntimeBroker");
-                for (int m = 0; m < processesByName1.Length; m++)
-                {
-                    processesByName1[m].Kill();
-                }
-                //backup
-                if (Directory.Exists("C:\\BlueSky\\Backup"))
-                {
-                    Directory.Delete("C:\\BlueSky\\Backup", true);
-                }
-                if (!Directory.Exists("C:\\BlueSky"))
-                {
-                    Directory.CreateDirectory("C:\\BlueSky");
-                }
-                Directory.CreateDirectory("C:\\BlueSky\\Backup");
-                takeperm("C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll");
-                takeperm("C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll");
-                File.Copy("C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\BCKX64.dll", true);
-                File.Copy("C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\BCKX86.dll", true);
-                //create a pernament backup in case anything goes wrong so badly
-                if (!File.Exists("C:\\BlueSky\\Backup\\DONOTTOUCH_X64.dll"))
-                {
-                    File.Copy("C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\DONOTTOUCH_X64.dll", true);
-                }
-                if (!File.Exists("C:\\BlueSky\\Backup\\DONOTTOUCH_X86.dll"))
-                {
-                    File.Copy("C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\DONOTTOUCH_X86.dll", true);
-                }
-                //ensure directory
-                if (Directory.Exists("C:\\BlueSky\\Temp"))
-                {
-                    Directory.Delete("C:\\BlueSky\\Temp", true);
-                }
-                if (!Directory.Exists("C:\\BlueSky"))
-                {
-                    Directory.CreateDirectory("C:\\BlueSky");
-                }
-                Directory.CreateDirectory("C:\\BlueSky\\Temp");
-                //ensure patched original file
-                //patch
-                if (winver == 10)
-                {
-                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1064.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
-                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1086.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
-                    File.Copy("C:\\BlueSky\\Temp\\tempx64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                    File.Copy("C:\\BlueSky\\Temp\\tempx86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                    Directory.Delete("C:\\BlueSky\\Temp", true);
-                    Process.Start("minecraft://");
+                    label.Text = "Launching...";
+                    await Prepare();
+                    await GetRidService();
+                    await LaunchProtocol();
+                    await KillRB();
+                    await Task.Delay(timeout);
+                    pbar.Style = ProgressBarStyle.Blocks;
+                    pbar.MarqueeAnimationSpeed = 0;
+                    label.Text = "Done!";
                     Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
                     mc.WaitForExit();
                     mc.Exited += ProcessEnded;
-                    label.Text = "Done!";
-                    if (extMC != 0)
+                    ws();
+                    string disable = AppDomain.CurrentDomain.BaseDirectory + "Assets/DISABLE.reg";
+                    Process regeditProcess = Process.Start("regedit.exe", "/s \"" + disable + "\"");
+                    regeditProcess.WaitForExit();
+                    ServiceController serviceController = new ServiceController("ClipSVC");
+                    if (serviceController.Status != ServiceControllerStatus.Running)
                     {
-                        ws();
-                        await KillRB();
-                        label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                        label.Text = "Cleaning up...";
-                        label.Text = "All task completed successfully.";
-                        pbar.Style = ProgressBarStyle.Blocks;
-                        pbar.MarqueeAnimationSpeed = 0;
-                    }
-                    else
-                    {
-                        ws();
-                        await KillRB();
-                        label.Text = "Minecraft closed successfully, rolling back...";
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                        label.Text = "Cleaning up...";
-                        label.Text = "All task completed successfully.";
-                        pbar.Style = ProgressBarStyle.Blocks;
-                        pbar.MarqueeAnimationSpeed = 0;
+                        serviceController.Start();
                     }
                 }
-                else if (winver == 11)
+                else if (method == 2)
                 {
-                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1164.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
-                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1186.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
-                    File.Copy("C:\\BlueSky\\Temp\\tempx64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                    File.Copy("C:\\BlueSky\\Temp\\tempx86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                    Directory.Delete("C:\\BlueSky\\Temp", true);
-                    Process.Start("minecraft://");
-                    Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
-                    mc.WaitForExit();
-                    mc.Exited += ProcessEnded;
-                    label.Text = "Done!";
-                    if (extMC != 0)
+                    label.Text = "Launching...";
+                    //at1
+                    string reganti2 = AppDomain.CurrentDomain.BaseDirectory + "Assets/1.reg";
+                    Process regeditProcess2 = Process.Start("regedit.exe", "/s \"" + reganti2 + "\"");
+                    regeditProcess2.WaitForExit();
+                    //at2
+                    string reganti3 = AppDomain.CurrentDomain.BaseDirectory + "Assets/2.reg";
+                    Process regeditProcess3 = Process.Start("regedit.exe", "/s \"" + reganti3 + "\"");
+                    regeditProcess3.WaitForExit();
+                    //at3
+                    string reganti4 = AppDomain.CurrentDomain.BaseDirectory + "Assets/3.reg";
+                    Process regeditProcess4 = Process.Start("regedit.exe", "/s \"" + reganti4 + "\"");
+                    regeditProcess4.WaitForExit();
+                    //disable a service
+                    ServiceController serviceController2 = new ServiceController("dmwappushservice");
+                    if (serviceController2.Status == ServiceControllerStatus.Running)
                     {
-                        ws();
-                        await KillRB();
-                        label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                        label.Text = "Cleaning up...";
-                        label.Text = "All task completed successfully.";
-                        pbar.Style = ProgressBarStyle.Blocks;
-                        pbar.MarqueeAnimationSpeed = 0;
+                        serviceController2.Stop();
+                    }
+                    //debloat uwp a bit
+                    Process[] processesByName = Process.GetProcessesByName("ApplicationFrameHost");
+                    for (int m = 0; m < processesByName.Length; m++)
+                    {
+                        processesByName[m].Kill();
+                    }
+                    Process[] processesByName1 = Process.GetProcessesByName("RuntimeBroker");
+                    for (int m = 0; m < processesByName1.Length; m++)
+                    {
+                        processesByName1[m].Kill();
+                    }
+                    //backup
+                    if (Directory.Exists("C:\\BlueSky\\Backup"))
+                    {
+                        Directory.Delete("C:\\BlueSky\\Backup", true);
+                    }
+                    if (!Directory.Exists("C:\\BlueSky"))
+                    {
+                        Directory.CreateDirectory("C:\\BlueSky");
+                    }
+                    Directory.CreateDirectory("C:\\BlueSky\\Backup");
+                    takeperm("C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll");
+                    takeperm("C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll");
+                    File.Copy("C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\BCKX64.dll", true);
+                    File.Copy("C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\BCKX86.dll", true);
+                    //create a pernament backup in case anything goes wrong so badly
+                    if (!File.Exists("C:\\BlueSky\\Backup\\DONOTTOUCH_X64.dll"))
+                    {
+                        File.Copy("C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\DONOTTOUCH_X64.dll", true);
+                    }
+                    if (!File.Exists("C:\\BlueSky\\Backup\\DONOTTOUCH_X86.dll"))
+                    {
+                        File.Copy("C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", "C:\\BlueSky\\Backup\\DONOTTOUCH_X86.dll", true);
+                    }
+                    //ensure directory
+                    if (Directory.Exists("C:\\BlueSky\\Temp"))
+                    {
+                        Directory.Delete("C:\\BlueSky\\Temp", true);
+                    }
+                    if (!Directory.Exists("C:\\BlueSky"))
+                    {
+                        Directory.CreateDirectory("C:\\BlueSky");
+                    }
+                    Directory.CreateDirectory("C:\\BlueSky\\Temp");
+                    //ensure patched original file
+                    //patch
+                    if (winver == 10)
+                    {
+                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1064.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
+                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1086.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
+                        File.Copy("C:\\BlueSky\\Temp\\tempx64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                        File.Copy("C:\\BlueSky\\Temp\\tempx86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                        Directory.Delete("C:\\BlueSky\\Temp", true);
+                        Process.Start("minecraft://");
+                        Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
+                        mc.WaitForExit();
+                        mc.Exited += ProcessEnded;
+                        label.Text = "Done!";
+                        if (extMC != 0)
+                        {
+                            ws();
+                            await KillRB();
+                            label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                            label.Text = "Cleaning up...";
+                            label.Text = "All task completed successfully.";
+                            pbar.Style = ProgressBarStyle.Blocks;
+                            pbar.MarqueeAnimationSpeed = 0;
+                        }
+                        else
+                        {
+                            ws();
+                            await KillRB();
+                            label.Text = "Minecraft closed successfully, rolling back...";
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                            label.Text = "Cleaning up...";
+                            label.Text = "All task completed successfully.";
+                            pbar.Style = ProgressBarStyle.Blocks;
+                            pbar.MarqueeAnimationSpeed = 0;
+                        }
+                    }
+                    else if (winver == 11)
+                    {
+                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1164.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
+                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1186.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
+                        File.Copy("C:\\BlueSky\\Temp\\tempx64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                        File.Copy("C:\\BlueSky\\Temp\\tempx86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                        Directory.Delete("C:\\BlueSky\\Temp", true);
+                        Process.Start("minecraft://");
+                        Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
+                        mc.WaitForExit();
+                        mc.Exited += ProcessEnded;
+                        label.Text = "Done!";
+                        if (extMC != 0)
+                        {
+                            ws();
+                            await KillRB();
+                            label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                            label.Text = "Cleaning up...";
+                            label.Text = "All task completed successfully.";
+                            pbar.Style = ProgressBarStyle.Blocks;
+                            pbar.MarqueeAnimationSpeed = 0;
+                        }
+                        else
+                        {
+                            ws();
+                            await KillRB();
+                            label.Text = "Minecraft closed successfully, rolling back...";
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                            label.Text = "Cleaning up...";
+                            label.Text = "All task completed successfully.";
+                            pbar.Style = ProgressBarStyle.Blocks;
+                            pbar.MarqueeAnimationSpeed = 0;
+                        }
                     }
                     else
                     {
-                        ws();
-                        await KillRB(); 
-                        label.Text = "Minecraft closed successfully, rolling back...";
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                        File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                        label.Text = "Cleaning up...";
-                        label.Text = "All task completed successfully.";
-                        pbar.Style = ProgressBarStyle.Blocks;
-                        pbar.MarqueeAnimationSpeed = 0;
+                        notice("Patching process stopped! Invaild windows version specified!");
                     }
+                }
+                else if (method == 3)
+                {
+                    Process.Start("minecraft://");
+                    pbar.Style = ProgressBarStyle.Blocks;
+                    pbar.MarqueeAnimationSpeed = 0;
                 }
                 else
                 {
-                    notice("Patching process stopped! Invaild windows version specified!");
+                    notice("Invaild method or timer!");
                 }
-            }
-            else if (method == 3)
-            {
-                Process.Start("minecraft://");
-                pbar.Style = ProgressBarStyle.Blocks;
-                pbar.MarqueeAnimationSpeed = 0;
             }
             else
             {
-                notice("Invaild method or timer!");
+                notice("Minecraft is not installed!");
             }
         }
 
