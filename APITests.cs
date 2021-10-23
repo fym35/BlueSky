@@ -48,7 +48,7 @@ namespace BlueSkyNew
 
         private void button6_Click(object sender, EventArgs e)
         {
-            rAPI.notice("This is a testing GUI to test various BlueSky API functions.");
+            rAPI.notice("This is a testing GUI to test various BlueSky API functions. This GUI should be only used for testing purposes and may not stable for main usage.");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -69,6 +69,19 @@ namespace BlueSkyNew
         private void button9_Click(object sender, EventArgs e)
         {
             rAPI.ws();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            int test = rAPI.checkmc();
+            if(test == 1)
+            {
+                rAPI.notice("not installed");
+            }
+            else
+            {
+                rAPI.notice("installed");
+            }
         }
     }
 }

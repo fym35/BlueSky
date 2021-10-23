@@ -12,6 +12,9 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Windows.Documents;
+using System.Windows.Threading;
+using Windows.Management.Deployment;
 
 namespace BlueSkyNew.API
 {
@@ -508,6 +511,23 @@ namespace BlueSkyNew.API
             {
                 serviceController.Start();
             }
+        }
+
+        public static int checkmc()
+        {
+            //check if Minecraft is installed
+            Windows.Management.Deployment.PackageManager P = new Windows.Management.Deployment.PackageManager();
+            var pkgManager = new PackageManager();
+            var pkg = P.FindPackagesForUser(string.Empty, "Microsoft.MinecraftUWP_8wekyb3d8bbwe").FirstOrDefault();
+            try
+            {
+                bool aval = pkg.Status.NotAvailable;
+            }
+            catch (Exception)
+            {
+                return 1;       //not installed
+            }
+            return 2;            //installed
         }
     }
 }
