@@ -100,7 +100,7 @@ namespace BlueSkyNew.API
             }
             else
             {
-                notice("Minecraft is installed!");
+                notice("Minecraft is installed! Error Code MC_INSTALLED");
             }
         }
 
@@ -183,7 +183,7 @@ namespace BlueSkyNew.API
             }
             else
             {
-                notice("Minecraft is installed!");
+                notice("Minecraft is installed! Error Code MC_INSTALLED");
             }
         }
 
@@ -240,7 +240,7 @@ namespace BlueSkyNew.API
             }
             else
             {
-                notice("Minecraft is not installed!");
+                notice("Minecraft is not installed! Error Code MC_NOT_INSTALLED");
             }
         }
 
@@ -297,15 +297,14 @@ namespace BlueSkyNew.API
                         serviceController2.Stop();
                     }
                     //debloat uwp a bit
-                    Process[] processesByName = Process.GetProcessesByName("ApplicationFrameHost");
-                    for (int m = 0; m < processesByName.Length; m++)
+                    try
                     {
-                        processesByName[m].Kill();
+                        await KillRB();
+                        await KillUWP();
                     }
-                    Process[] processesByName1 = Process.GetProcessesByName("RuntimeBroker");
-                    for (int m = 0; m < processesByName1.Length; m++)
+                    catch (Exception)
                     {
-                        processesByName1[m].Kill();
+                        notice("Game Launching Error Occured! The launcher cannot attempt to end process needed for game launching! Error Code CRIC_PROC_END_FAILED");
                     }
                     //backup
                     if (Directory.Exists("C:\\BlueSky\\Backup"))
@@ -342,83 +341,76 @@ namespace BlueSkyNew.API
                     Directory.CreateDirectory("C:\\BlueSky\\Temp");
                     //ensure patched original file
                     //patch
-                    if (winver == 10)
+                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1164.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
+                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1186.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
+                    try
                     {
-                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1064.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
-                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1086.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
                         File.Copy("C:\\BlueSky\\Temp\\tempx64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
                         File.Copy("C:\\BlueSky\\Temp\\tempx86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                        Directory.Delete("C:\\BlueSky\\Temp", true);
-                        Process.Start("minecraft://");
-                        Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
-                        mc.WaitForExit();
-                        mc.Exited += ProcessEnded;
-                        label.Text = "Done!";
-                        if (extMC != 0)
-                        {
-                            ws();
-                            await KillRB();
-                            label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
-                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                            label.Text = "Cleaning up...";
-                            label.Text = "All task completed successfully.";
-                            pbar.Style = ProgressBarStyle.Blocks;
-                            pbar.MarqueeAnimationSpeed = 0;
-                        }
-                        else
-                        {
-                            ws();
-                            await KillRB();
-                            label.Text = "Minecraft closed successfully, rolling back...";
-                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                            label.Text = "Cleaning up...";
-                            label.Text = "All task completed successfully.";
-                            pbar.Style = ProgressBarStyle.Blocks;
-                            pbar.MarqueeAnimationSpeed = 0;
-                        }
                     }
-                    else if (winver == 11)
+                    catch (Exception)
                     {
-                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1164.dll", "C:\\BlueSky\\Temp\\tempx64.dll");
-                        File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1186.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
-                        File.Copy("C:\\BlueSky\\Temp\\tempx64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                        File.Copy("C:\\BlueSky\\Temp\\tempx86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                        Directory.Delete("C:\\BlueSky\\Temp", true);
-                        Process.Start("minecraft://");
-                        Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
-                        mc.WaitForExit();
-                        mc.Exited += ProcessEnded;
-                        label.Text = "Done!";
-                        if (extMC != 0)
+                        notice("Game Launching Error Occured! Launcher cannot access to File System. Error Code FS_ACCESS_FAILED");
+                    }
+                    Directory.Delete("C:\\BlueSky\\Temp", true);
+                    Process.Start("minecraft://");
+                    Process mc = Process.GetProcessesByName("Minecraft.Windows")[0];
+                    mc.WaitForExit();
+                    mc.Exited += ProcessEnded;
+                    label.Text = "Done!";
+                    if (extMC != 0)
+                    {
+                        try
                         {
-                            ws();
+                            EnsureTask();
                             await KillRB();
-                            label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
+                            await KillUWP();
+                        }
+                        catch (Exception)
+                        {
+                            notice("Game Launching Error Occured! Launcher cannot prepare for recovering to system! Error Code RECOVER_PREP_FAILED");
+                        }
+                        label.Text = "Minecraft abnormal exit code delected! Rolling back... Error Code MC_ABN_EXT_CODE!";
+                        try
+                        {
                             File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
                             File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                            label.Text = "Cleaning up...";
-                            label.Text = "All task completed successfully.";
-                            pbar.Style = ProgressBarStyle.Blocks;
-                            pbar.MarqueeAnimationSpeed = 0;
                         }
-                        else
+                        catch (Exception)
                         {
-                            ws();
-                            await KillRB();
-                            label.Text = "Minecraft closed successfully, rolling back...";
-                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
-                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
-                            label.Text = "Cleaning up...";
-                            label.Text = "All task completed successfully.";
-                            pbar.Style = ProgressBarStyle.Blocks;
-                            pbar.MarqueeAnimationSpeed = 0;
+                            notice("Game Launching Error Occured! Launcher cannot recover the File System! Error Code FS_RECOVER_FAILED");
                         }
+                        label.Text = "Cleaning up...";
+                        label.Text = "All task completed successfully.";
+                        pbar.Style = ProgressBarStyle.Blocks;
+                        pbar.MarqueeAnimationSpeed = 0;
                     }
                     else
                     {
-                        notice("Patching process stopped! Invaild windows version specified!");
+                        try
+                        {
+                            EnsureTask();
+                            await KillRB();
+                            await KillUWP();
+                        }
+                        catch (Exception)
+                        {
+                            notice("Game Launching Error Occured! Launcher cannot prepare for recovering to system! Error Code RECOVER_PREP_FAILED");
+                        }
+                        label.Text = "Minecraft closed successfully, rolling back...";
+                        try
+                        {
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX64.dll", "C:\\Windows\\System32\\Windows.ApplicationModel.Store.dll", true);
+                            File.Copy("C:\\BlueSky\\Backup\\BCKX86.dll", "C:\\Windows\\SysWOW64\\Windows.ApplicationModel.Store.dll", true);
+                        }
+                        catch (Exception)
+                        {
+                            notice("Game Launching Error Occured! Launcher cannot recover the File System! Error Code FS_RECOVER_FAILED");
+                        }
+                        label.Text = "Cleaning up...";
+                        label.Text = "All task completed successfully.";
+                        pbar.Style = ProgressBarStyle.Blocks;
+                        pbar.MarqueeAnimationSpeed = 0;
                     }
                 }
                 else if (method == 3)
@@ -434,7 +426,7 @@ namespace BlueSkyNew.API
             }
             else
             {
-                notice("Minecraft is not installed! Please install Minecraft trial from Microsoft Store or from BlueSky's Installer.");
+                notice("Minecraft is not installed! Please install Minecraft trial from Microsoft Store or from BlueSky's Installer. Error Code MC_NOT_INSTALLED");
             }
         }
 
@@ -483,6 +475,7 @@ namespace BlueSkyNew.API
 
         public static async Task KillRB()
         {
+            await Task.Delay(5000);
             await Task.Run(delegate ()
             {
                 Process[] processesByName = Process.GetProcessesByName("RuntimeBroker");
@@ -491,6 +484,25 @@ namespace BlueSkyNew.API
                     processesByName[i].Kill();
                 }
             });
+        }
+
+        public static async Task KillUWP()
+        {
+            await Task.Delay(5000);
+            await Task.Run(delegate ()
+            {
+                Process[] processesByName = Process.GetProcessesByName("ApplicationFrameHost");
+                for (int i = 0; i < processesByName.Length; i++)
+                {
+                    processesByName[i].Kill();
+                }
+            });
+        }
+
+        public static void EnsureTask()
+        {
+            Process.Start("RuntimeBroker.exe");
+            Process.Start("ApplicationFrameHost.exe");
         }
 
         public static void injectdll(string DLL)
@@ -525,18 +537,10 @@ namespace BlueSkyNew.API
             Process.Start(info);
         }
 
-        public static void ws()
+        public static async void ws()
         {
-            Process[] processesByName = Process.GetProcessesByName("ApplicationFrameHost");
-            for (int m = 0; m < processesByName.Length; m++)
-            {
-                processesByName[m].Kill();
-            }
-            Process[] processesByName1 = Process.GetProcessesByName("RuntimeBroker");
-            for (int m = 0; m < processesByName1.Length; m++)
-            {
-                processesByName1[m].Kill();
-            }
+            await KillRB();
+            await KillUWP();
         }
 
         public static void desvc()
