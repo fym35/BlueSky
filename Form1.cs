@@ -35,7 +35,7 @@ namespace BlueSkyNew
 
         private void button1_Click(object sender, EventArgs e)
         {
-            rAPI.launch(10, 2, 45, progressBar1, label1);
+            rAPI.launch(11, 2, 45, progressBar1, label1);
         }
         
         private void button2_Click(object sender, EventArgs e)

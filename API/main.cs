@@ -572,5 +572,11 @@ namespace BlueSkyNew.API
             }
             return 2;            //installed
         }
+
+        public static void Logger(string log, System.Windows.Forms.RichTextBox rtbox)
+        {
+            string time = DateTime.Now.ToString("HH:mm:ss tt");
+            rtbox.Text += "\n" + "[" + time + "]" + " " + log;
+        }
     }
 }
