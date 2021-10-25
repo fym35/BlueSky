@@ -15,6 +15,7 @@ using System.Security.Principal;
 using System.Windows.Documents;
 using System.Windows.Threading;
 using Windows.Management.Deployment;
+using System.Collections.ObjectModel;
 
 namespace BlueSkyNew.API
 {
@@ -22,7 +23,8 @@ namespace BlueSkyNew.API
     This file contain the whole BlueSky API. To use, simplity reference to this class and you are all set!
     To use this in Application Environment, reference this class to Internal Console's code, then you are ready.
     */
-    public class rAPI {
+    public class rAPI
+    {
         private const int PROCESS_CREATE_THREAD = 2;
         private const int PROCESS_QUERY_INFORMATION = 1024;
         private const int PROCESS_VM_OPERATION = 8;
@@ -200,7 +202,7 @@ namespace BlueSkyNew.API
             }
         }
 
-        public static void uninstallmc(System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
+        public static async void uninstallmc(System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
             int inst = checkmc();
             if (inst == 2)
@@ -208,14 +210,11 @@ namespace BlueSkyNew.API
                 int ask = notice_ask("Warning", "Do you want to uninstall Minecraft? This will also delete all of your worlds, resources pack, behavior pack and stuff!");
                 if (ask == 1)
                 {
-                    pbar.Value = 0;
                     label.Text = "Uninstalling...";
-                    pbar.Value = 50;
                     /*
                     string uns = @"/C powershell -Command ""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
                     System.Diagnostics.Process uninstall = System.Diagnostics.Process.Start("CMD.exe", uns);\
                     uninstall.WaitForExit();
-                    */
                     ProcessStartInfo info = new ProcessStartInfo("cmd.exe");
                     info.WindowStyle = ProcessWindowStyle.Hidden;
                     info.Arguments = @"/K /C powershell -Command""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
@@ -232,6 +231,25 @@ namespace BlueSkyNew.API
                         pbar.Value = 100;
                         label.Text = "Package failed to uninstall! Error code PKG_UNINSTALL_FAILED";
                     }
+                    */
+                    string value = await GetName("Microsoft.MinecraftUWP");
+                    PowerShell ps = PowerShell.Create();
+                    ps.AddCommand("Remove-AppxPackage");
+                    ps.AddParameter("-Package", value);
+                    ps.Streams.Error.DataAdded += Error_DataAdded;
+                    ps.Streams.Progress.DataAdded += Progress_DataAdded;
+                    await Task.Run(delegate
+                    {
+                        ps.Invoke();
+                    });
+                    if (!ps.HadErrors)
+                    {
+                        label.Text = "Package uninstalled successfully!";
+                    }
+                    else
+                    {
+                        label.Text = "Package failed to install! Error code PKG_UNINSTALL_FAILED";
+                    }
                 }
                 else
                 {
@@ -244,6 +262,22 @@ namespace BlueSkyNew.API
             }
         }
 
+        public static async Task<string> GetName(string package)
+        {
+            PowerShell ps = PowerShell.Create();
+            ps.AddCommand("Get-AppxPackage");
+            ps.AddParameter("Name", package);
+            Collection<PSObject> results = null;
+            await Task.Run(delegate
+            {
+                results = ps.Invoke();
+            });
+            if (results.Count == 0)
+            {
+                return null;
+            }
+            return (string)results[0].Members["PackageFullName"].Value;
+        }
         public static async void launch(int winver, int method, int timeout, System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
             int inst = checkmc();
@@ -253,7 +287,6 @@ namespace BlueSkyNew.API
                 pbar.MarqueeAnimationSpeed = 50;
                 if (method == 0)
                 {
-                    label.Text = "Launching...";
                     await Prepare();
                     await GetRidService();
                     await LaunchProtocol();
