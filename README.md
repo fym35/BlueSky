@@ -12,7 +12,7 @@
  Most of all avaliable versions! Although most support are for newest/semi-new version, we also working to provide old version support too!
  
  # What 3rd Party Client are supported?
- Every client in DLL form are supported. Including Horizon, Onix, Project Star, etc.
+ Currently they are not natively supported by BlueSky. However you can get them to working with some major modifications.
  
  # Is BlueSky illegal?
  Technically, yes, since BlueSky allow you to play Minecraft without have to pay. But on other side, BlueSky actually doesn't crack the game! It just does a bunch of different system-related tricks to make Minecraft "think" that you are currently own the game. Either, what do you expect on a launcher anyway?
