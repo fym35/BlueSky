@@ -2,23 +2,13 @@
  BlueSky Launcher Source Code
  
  # What is BlueSky?
- BlueSky is a Minecraft for Windows 10 launcher allow you to play the game without needing to own the game legally.
- Alternatively, BlueSky is a Simple-On-The-Fly Toolbox, allow you to install 3rd party client, hacking the game though your own DLL, etc.
+ BlueSky is a launcher for Minecraft Windows 10 Edition that's still maintained till today. This launcher allowing you to play Minecraft for free without actually legally owning Minecraft. Also, BlueSky is safer than alternatives since the simplity and functionally are put on the top.
  
- # Can I getting banned from Minecraft Online if I use BlueSky?
- Maybe, currently we doesn't have anyone banned. But if you want to safe, just play on a Alternative Account!
- 
- # What versions of Minecraft are supported?
- Most of all avaliable versions! Although most support are for newest/semi-new version, we also working to provide old version support too!
- 
- # What 3rd Party Client are supported?
- Currently they are not natively supported by BlueSky. However you can get them to working with some major modifications.
+ # Can I getting banned from Minecraft Online?
+ Yes! Using BlueSky give you a high risk of getting banned from Minecraft Online Services and Xbox Online Services. So for safe, use a alternative account or a throwaway account will be good and keeping you from risk of getting banned.
  
  # Is BlueSky illegal?
- Technically, yes, since BlueSky allow you to play Minecraft without have to pay. But on other side, BlueSky actually doesn't crack the game! It just does a bunch of different system-related tricks to make Minecraft "think" that you are currently own the game. Either, what do you expect on a launcher anyway?
- 
- # Development
- BlueSky's source code overall is hard to read, specially if you are a experienced developer. Due to that reason, a new simple, flexible and nice API is in development. Introduce BlueSky API! BlueSky API make it easier to tinkering with the source code. You can easily tweak it yourself without any complex line of codes, just one function with some of arguments and you are all set. To get started with the API itself, heads to Wiki to get started.
- 
- # I'm I allowed to edit and pulish BlueSky at a custom build?
- BlueSky is licensed with BSD 2-Clause "Simplified" License license. That mean you have complete permissions to modify BlueSky for either commercial use, custom distribution and private use but whatever you do, you have to keep the license.
+ Technically, yes. Since you still play full version of Minecraft without buying the game, and that's is against Mojang Terms of Services. So we highly recommends you to just use BlueSky for educational purposes, or, trying the game before actually buying it (like we hope you to do so).
+
+ # How to install?
+ Grab the latest release from Release tab, then extract and open BlueSkyNew.exe and enjoy!
