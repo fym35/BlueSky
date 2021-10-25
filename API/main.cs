@@ -16,6 +16,7 @@ using System.Windows.Documents;
 using System.Windows.Threading;
 using Windows.Management.Deployment;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace BlueSkyNew.API
 {
@@ -122,6 +123,39 @@ namespace BlueSkyNew.API
             }
         }
 
+        private static void Progress_DataAdded1(object sender, DataAddedEventArgs e)
+        {
+            PSDataCollection<ProgressRecord> pSDataCollection = (PSDataCollection<ProgressRecord>)sender;
+            progresseru("val" + pSDataCollection[e.Index].PercentComplete);
+        }
+
+        private static void Error_DataAdded1(object sender, DataAddedEventArgs e)
+        {
+            PSDataCollection<ErrorRecord> pSDataCollection = (PSDataCollection<ErrorRecord>)sender;
+        }
+        private static async void progresseru(string value)
+        {
+            System.Windows.Application.Current.Dispatcher.Invoke(delegate()
+            {
+                if (value.StartsWith("val"))
+                {
+                    double result = 0.0;
+                    if (double.TryParse(value.Remove(0, 3), out result))
+                    {
+                        pbarm.Value = (int)result;
+                    }
+                }
+                else if (value.StartsWith("max"))
+                {
+                    double result2 = 0.0;
+                    if (double.TryParse(value.Remove(0, 3), out result2))
+                    {
+                        pbarm.Maximum = (int)result2;
+                    }
+                }
+            });
+        }
+
         static int G_progress
         {
             get
@@ -210,35 +244,15 @@ namespace BlueSkyNew.API
                 int ask = notice_ask("Warning", "Do you want to uninstall Minecraft? This will also delete all of your worlds, resources pack, behavior pack and stuff!");
                 if (ask == 1)
                 {
+                    pbar.Value = 0;
                     label.Text = "Uninstalling...";
-                    /*
-                    string uns = @"/C powershell -Command ""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
-                    System.Diagnostics.Process uninstall = System.Diagnostics.Process.Start("CMD.exe", uns);\
-                    uninstall.WaitForExit();
-                    ProcessStartInfo info = new ProcessStartInfo("cmd.exe");
-                    info.WindowStyle = ProcessWindowStyle.Hidden;
-                    info.Arguments = @"/K /C powershell -Command""Get-AppxPackage Microsoft.MinecraftUWP | Remove-AppxPackage"" ";
-                    System.Diagnostics.Process uns = Process.Start(info);
-                    uns.WaitForExit();
-                    int errCode = uns.ExitCode;
-                    if (errCode == 0)
-                    {
-                        pbar.Value = 100;
-                        label.Text = "Package uninstalled successfully!";
-                    }
-                    else
-                    {
-                        pbar.Value = 100;
-                        label.Text = "Package failed to uninstall! Error code PKG_UNINSTALL_FAILED";
-                    }
-                    */
                     string value = await GetName("Microsoft.MinecraftUWP");
                     PowerShell ps = PowerShell.Create();
                     ps.AddCommand("Remove-AppxPackage");
                     ps.AddParameter("-Package", value);
                     ps.Streams.Error.DataAdded += Error_DataAdded;
                     ps.Streams.Progress.DataAdded += Progress_DataAdded;
-                    await Task.Run(delegate
+                    await Task.Run(delegate ()
                     {
                         ps.Invoke();
                     });
@@ -610,6 +624,11 @@ namespace BlueSkyNew.API
         {
             string time = DateTime.Now.ToString("HH:mm:ss tt");
             rtbox.Text += "\n" + "[" + time + "]" + " " + log;
+        }
+
+        public static void task_init()
+        {
+            pbarm.Value = 0;
         }
     }
 }
