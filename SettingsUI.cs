@@ -43,8 +43,11 @@ namespace BlueSkyNew
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            /*
             APITests apitest = new APITests();
             apitest.Show();
+            */
+            rAPI.notice("API Testing Menu is disabled!");
         }
 
         private void button3_Click(object sender, EventArgs e)

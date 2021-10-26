@@ -88,5 +88,18 @@ namespace BlueSkyNew
         {
             rAPI.desvc();
         }
+
+        private async void button12_Click(object sender, EventArgs e)
+        {
+            string realver = await rAPI.mcver();
+            if(realver != null)
+            {
+                rAPI.notice(realver + " is the installed version!");
+            }
+            else
+            {
+                rAPI.notice("Launcher cannot retrive game version! Error Code GAME_VER_REV_FAILED");
+            }
+        }
     }
 }

@@ -39,6 +39,8 @@ namespace BlueSkyNew.API
         static System.Windows.Forms.Label labelm;
 
         static int extMC;
+
+        static string version;
         public static void notice(string msg)
         {
             System.Windows.Forms.MessageBox.Show(msg);
@@ -121,39 +123,6 @@ namespace BlueSkyNew.API
             {
                 G_progress = prog;
             }
-        }
-
-        private static void Progress_DataAdded1(object sender, DataAddedEventArgs e)
-        {
-            PSDataCollection<ProgressRecord> pSDataCollection = (PSDataCollection<ProgressRecord>)sender;
-            progresseru("val" + pSDataCollection[e.Index].PercentComplete);
-        }
-
-        private static void Error_DataAdded1(object sender, DataAddedEventArgs e)
-        {
-            PSDataCollection<ErrorRecord> pSDataCollection = (PSDataCollection<ErrorRecord>)sender;
-        }
-        private static async void progresseru(string value)
-        {
-            System.Windows.Application.Current.Dispatcher.Invoke(delegate()
-            {
-                if (value.StartsWith("val"))
-                {
-                    double result = 0.0;
-                    if (double.TryParse(value.Remove(0, 3), out result))
-                    {
-                        pbarm.Value = (int)result;
-                    }
-                }
-                else if (value.StartsWith("max"))
-                {
-                    double result2 = 0.0;
-                    if (double.TryParse(value.Remove(0, 3), out result2))
-                    {
-                        pbarm.Maximum = (int)result2;
-                    }
-                }
-            });
         }
 
         static int G_progress
@@ -466,6 +435,10 @@ namespace BlueSkyNew.API
                     pbar.Style = ProgressBarStyle.Blocks;
                     pbar.MarqueeAnimationSpeed = 0;
                 }
+                else if (method == 4)
+                {
+                    
+                }
                 else
                 {
                     notice("Invaild method or timer!");
@@ -629,6 +602,32 @@ namespace BlueSkyNew.API
         public static void task_init()
         {
             pbarm.Value = 0;
+        }
+
+        public static async Task<string> mcver()
+        {
+            try
+            {
+                PowerShell ps = PowerShell.Create();
+                ps.AddCommand("Get-AppxPackage");
+                ps.AddParameter("Name", "Microsoft.MinecraftUWP");
+                Collection <PSObject> results = null;
+                await Task.Run(delegate
+                {
+                    results = ps.Invoke();
+                });
+                if (results.Count == 0)
+                {
+                    return null;
+                }
+                version = results[0].Members["Version"].Value?.ToString();
+                return version;
+            }
+            catch (Exception)
+            {
+                notice("Launcher cannot retrive game version! Error Code GAME_VER_REV_FAILED");
+            }    
+            return null;
         }
     }
 }
