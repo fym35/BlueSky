@@ -435,13 +435,9 @@ namespace BlueSkyNew.API
                     pbar.Style = ProgressBarStyle.Blocks;
                     pbar.MarqueeAnimationSpeed = 0;
                 }
-                else if (method == 4)
-                {
-                    
-                }
                 else
                 {
-                    notice("Invaild method or timer!");
+                    notice("Invaild method or timer! Error Code INVAILD_DATA");
                 }
             }
             else
