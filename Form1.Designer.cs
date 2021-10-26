@@ -116,7 +116,7 @@ namespace BlueSkyNew
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(745, 319);
             this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "Press \"Start Minecraft\" to launch Minecraft.";
+            this.richTextBox1.Text = "Press \"Start Minecraft\" to launch Minecraft.\n\nTHIS DOES NOTHING FOR NOW! ";
             // 
             // Form1
             // 

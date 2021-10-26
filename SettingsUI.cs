@@ -47,6 +47,7 @@ namespace BlueSkyNew
             APITests apitest = new APITests();
             apitest.Show();
             */
+            //Also disabled because this menu is broken anyway.
             rAPI.notice("API Testing Menu is disabled!");
         }
 
