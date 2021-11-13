@@ -1,0 +1,54 @@
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\DEVOFF.reg
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\DEVON.reg
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\DISABLE.reg
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\ENABLE.reg
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\xblive_patch.EXE
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.exe.config
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.exe
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.pdb
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\System.Management.Automation.dll
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.AssemblyReference.cache
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.AboutUI.resources
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.Form1.resources
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.Properties.Resources.resources
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.SettingsUI.resources
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.GenerateResource.cache
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.AssemblyInfoInputs.cache
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.AssemblyInfo.cs
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.CoreCompileInputs.cache
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.CopyComplete
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.exe
+C:\Users\cn\source\repos\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.pdb
+C:\Users\cn\source\repos\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Microsoft.Toolkit.Forms.UI.Controls.WebView.dll
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.AssemblyReference.cache
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.SuggestedBindingRedirects.cache
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.AboutUI.resources
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.APITests.resources
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.Form1.resources
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.Properties.Resources.resources
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.SettingsUI.resources
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.GenerateResource.cache
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.GeneratedMSBuildEditorConfig.editorconfig
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.AssemblyInfoInputs.cache
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.AssemblyInfo.cs
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.CoreCompileInputs.cache
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.exe
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.pdb
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\DEVOFF.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\DEVON.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\DISABLE.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\ENABLE.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.exe.config
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.exe
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\BlueSkyNew.pdb
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\System.Management.Automation.dll
+E:\BlueSky Launcher\BlueSkyNew\obj\x64\Debug\net48-windows7.0\BlueSkyNew.csproj.CopyComplete
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\1.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\2.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\3.reg
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1064.dll
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1086.dll
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1164.dll
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Assets\LaunchingAsset\1186.dll
+E:\BlueSky Launcher\BlueSkyNew\bin\x64\Debug\net48-windows7.0\Windows.winmd
