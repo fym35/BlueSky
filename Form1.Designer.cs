@@ -1,15 +1,15 @@
 ﻿
-namespace BlueSkyNew
+namespace BlueSky
 {
     partial class Form1
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -24,134 +24,233 @@ namespace BlueSkyNew
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // progressBar1
+            // tabPage4
             // 
-            this.progressBar1.Location = new System.Drawing.Point(-1, 361);
-            this.progressBar1.MarqueeAnimationSpeed = 0;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(773, 15);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 1;
+            this.tabPage4.Controls.Add(this.richTextBox2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(862, 472);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "About";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // richTextBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(1, 362);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ready";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.richTextBox2.Location = new System.Drawing.Point(19, 22);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(819, 415);
+            this.richTextBox2.TabIndex = 0;
+            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
             // 
-            // button1
+            // tabPage3
             // 
-            this.button1.Location = new System.Drawing.Point(313, 382);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 55);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Start Minecraft";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabPage3.Controls.Add(this.button7);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.progressBar2);
+            this.tabPage3.Controls.Add(this.button8);
+            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(862, 472);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Settings";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button7
             // 
-            this.button2.Location = new System.Drawing.Point(10, 382);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 55);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Settings";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button7.Location = new System.Drawing.Point(695, 15);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(147, 23);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Check for Update";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 427);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Ready";
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(0, 446);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(859, 23);
+            this.progressBar2.TabIndex = 13;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(22, 86);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(162, 23);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "Disable ClipSVC Exploit";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(146, 35);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(131, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Uninstall Minecraft";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(649, 382);
+            this.button3.Location = new System.Drawing.Point(22, 35);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 55);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "About";
+            this.button3.Size = new System.Drawing.Size(118, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Install Minecraft";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // pictureBox1
+            // label4
             // 
-            this.pictureBox1.BackgroundImage = global::BlueSkyNew.Properties.Resources.hh;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 361);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(773, 88);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 130);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Game Installation\r\n\r\n\r\n\r\nBasic\r\n\r\n\r\n\r\n\r\n\r\n";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.progressBar1);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(862, 472);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Game Client";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(9, 430);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "BlueSky Logger";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Ready to Launch";
             // 
-            // richTextBox1
+            // progressBar1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(15, 25);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(745, 319);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "Press \"Start Minecraft\" to launch Minecraft.\n\nTHIS DOES NOTHING FOR NOW! ";
+            this.progressBar1.Location = new System.Drawing.Point(0, 449);
+            this.progressBar1.MarqueeAnimationSpeed = 0;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(862, 23);
+            this.progressBar1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(329, 204);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(169, 61);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Start Minecraft";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(296, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(241, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "BlueSky Launcher ";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(870, 498);
+            this.tabControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 449);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.pictureBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ClientSize = new System.Drawing.Size(868, 498);
+            this.Controls.Add(this.tabControl1);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "BlueSky Launcher Beta 10";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "BlueSky Launcher Beta 11";
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 
