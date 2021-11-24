@@ -23,3 +23,7 @@ E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Assets\LaunchingAsset\1186.dll
 E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Assets\1.reg
 E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Assets\2.reg
 E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Assets\3.reg
+E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Assets\opcodes_64.json
+E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Assets\opcodes_86.json
+E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Newtonsoft.Json.dll
+E:\BlueSky Launcher\BlueSky\bin\x64\Debug\Newtonsoft.Json.xml

@@ -46,6 +46,7 @@ namespace BlueSky
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -154,6 +155,7 @@ namespace BlueSky
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.progressBar1);
             this.tabPage2.Controls.Add(this.button2);
@@ -214,6 +216,16 @@ namespace BlueSky
             this.tabControl1.Size = new System.Drawing.Size(870, 498);
             this.tabControl1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(329, 271);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,7 +234,7 @@ namespace BlueSky
             this.Controls.Add(this.tabControl1);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "BlueSky Launcher Beta 11";
+            this.Text = "BlueSky Launcher Beta 12";
             this.tabPage4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -251,6 +263,7 @@ namespace BlueSky
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

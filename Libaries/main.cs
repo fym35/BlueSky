@@ -38,7 +38,7 @@ namespace BlueSky.Libaries
 
         static string version;
 
-        static string versions = "0.11";
+        static string versions = "0.12";
         static string verc;
         public static void notice(string msg)
         {
@@ -435,6 +435,19 @@ namespace BlueSky.Libaries
                     pbar.Style = ProgressBarStyle.Blocks;
                     pbar.MarqueeAnimationSpeed = 0;
                 }
+                else if (method == 4)
+                {
+                    Process.Start("minecraft://");
+                    pbar.Style = ProgressBarStyle.Marquee;
+                    pbar.MarqueeAnimationSpeed = 50;
+                    label.Text = "Launching Minecraft, please wait...";
+                    await Task.Delay(4000);
+                    label.Text = "Injecting";
+                    NonDLL.inti();
+                    NonDLL.TrialHack();
+                    label.Text = "Done!";
+                    pbar.MarqueeAnimationSpeed = 0;
+                }
                 else
                 {
                     notice("Invaild method or timer! Error Code INVAILD_DATA");
@@ -658,12 +671,11 @@ namespace BlueSky.Libaries
             if (ver1 != versions)
             {
                 NewVersion();
-                File.Delete(@"C:\BlueSky\data.ver");
+                File.Delete("C:\\BlueSky\\data.ver");
             }
             else
             {
                 LatestAlready();
-                File.Delete(@"C:\BlueSky\data.ver");
             }
         }
 
@@ -672,9 +684,6 @@ namespace BlueSky.Libaries
             int pro = notice_ask("Update?", "New Version Available! \n\nYour Current Version: " + versions + "\nLatest Version: " + verc + "\n\nDo you want to update now?");
             if (pro == 1)
             {
-                string link = File.ReadLines(@"C:\BlueSky\ver.idk").Skip(1).Take(2).First();
-                WebClient Client1 = new WebClient();
-                Client1.DownloadFile(link, @"C:\BlueSky\update.zip");
                 Process.Start(AppDomain.CurrentDomain.BaseDirectory + "BlueSky.Updater.exe");
                 Process.GetCurrentProcess().Kill();
             }
@@ -687,6 +696,17 @@ namespace BlueSky.Libaries
         public static void LatestAlready()
         {
             System.Windows.Forms.MessageBox.Show("You already have latest version!");
+        }
+
+        public static void GetMCID()
+        {
+            Process.Start("minecraft://");
+            Thread.Sleep(5000);
+            Process[] s = Process.GetProcessesByName("Minecraft.Windows");
+            int sid = s.Length;
+            int id = s[sid - 1].Id;
+            sid -= 1;
+            notice(id.ToString());
         }
     }
 }

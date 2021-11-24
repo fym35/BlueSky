@@ -34,7 +34,7 @@ namespace BlueSky
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BS.launch(11, 0, 45, progressBar1, label2);
+            BS.launch(11, 4, 45, progressBar1, label2);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace BlueSky
         private void button7_Click(object sender, EventArgs e)
         {
             BS.FetchUpdate();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BS.GetMCID();
         }
     }
 }
