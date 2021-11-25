@@ -448,6 +448,10 @@ namespace BlueSky.Libaries
                     label.Text = "Done!";
                     pbar.MarqueeAnimationSpeed = 0;
                 }
+                else if (method == 5)
+                {
+                    test.start();
+                }
                 else
                 {
                     notice("Invaild method or timer! Error Code INVAILD_DATA");
