@@ -20,4 +20,4 @@
  Pull Request are always welcome! Whatever it is: Adding new features, fixing critical bugs, or just fix a simple typo. All is always supported. Also, if you found any bugs in BlueSky, reporting it though Issues tab should helps the development even more.
 
  # Community
- We have a [Discord](https://discord.gg/vkqHgbCRq8) server where you can join and ask for support. Join us now for BlueSky updates, and maybe meet new friends too? :)
+ We have a [Discord](https://discord.gg/g8DFnA5cWb) server where you can join and ask for support. Join us now for BlueSky updates, and maybe meet new friends too? :)
