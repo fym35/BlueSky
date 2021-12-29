@@ -90,12 +90,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libaries\injector.cs" />
-    <Compile Include="Libaries\launcher.cs" />
     <Compile Include="Libaries\main.cs" />
-    <Compile Include="Libaries\NonDLL.cs" />
-    <Compile Include="Libaries\ProcessManager.cs" />
-    <Compile Include="Libaries\test.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

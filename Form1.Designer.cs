@@ -74,6 +74,7 @@ namespace BlueSky
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.button7);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.progressBar2);
@@ -149,13 +150,12 @@ namespace BlueSky
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 130);
+            this.label4.Size = new System.Drawing.Size(88, 117);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Game Installation\r\n\r\n\r\n\r\nBasic\r\n\r\n\r\n\r\n\r\n\r\n";
+            this.label4.Text = "Game Installation\r\n\r\n\r\n\r\nBasic\r\n\r\n\r\n\r\nAdvanced";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.progressBar1);
             this.tabPage2.Controls.Add(this.button2);
@@ -218,11 +218,11 @@ namespace BlueSky
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(329, 271);
+            this.button1.Location = new System.Drawing.Point(22, 135);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Test";
+            this.button1.Size = new System.Drawing.Size(162, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Dump DLL";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -234,7 +234,7 @@ namespace BlueSky
             this.Controls.Add(this.tabControl1);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "BlueSky Launcher Beta 12";
+            this.Text = "BlueSky Launcher Beta 13";
             this.tabPage4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();

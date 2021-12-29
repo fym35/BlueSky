@@ -17,6 +17,7 @@ using Windows.Management.Deployment;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Net;
+using Microsoft.Win32;
 
 namespace BlueSky.Libaries
 {
@@ -38,7 +39,7 @@ namespace BlueSky.Libaries
 
         static string version;
 
-        static string versions = "0.12";
+        static string versions = "0.13";
         static string verc;
         public static void notice(string msg)
         {
@@ -260,6 +261,22 @@ namespace BlueSky.Libaries
             }
             return (string)results[0].Members["PackageFullName"].Value;
         }
+        public static async Task<string> GetVersion(string package)
+        {
+            PowerShell ps = PowerShell.Create();
+            ps.AddCommand("Get-AppxPackage");
+            ps.AddParameter("Name", package);
+            Collection<PSObject> results = null;
+            await Task.Run(delegate
+            {
+                results = ps.Invoke();
+            });
+            if (results.Count == 0)
+            {
+                return null;
+            }
+            return (string)results[0].Members["Version"].Value;
+        }
         public static async void launch(int winver, int method, int timeout, System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label)
         {
             int inst = checkmc();
@@ -269,6 +286,29 @@ namespace BlueSky.Libaries
                 pbar.MarqueeAnimationSpeed = 50;
                 if (method == 0)
                 {
+                    //at1
+                    string reganti2 = AppDomain.CurrentDomain.BaseDirectory + "Assets/1.reg";
+                    Process regeditProcess2 = Process.Start("regedit.exe", "/s \"" + reganti2 + "\"");
+                    regeditProcess2.WaitForExit();
+                    //at2
+                    string reganti3 = AppDomain.CurrentDomain.BaseDirectory + "Assets/2.reg";
+                    Process regeditProcess3 = Process.Start("regedit.exe", "/s \"" + reganti3 + "\"");
+                    regeditProcess3.WaitForExit();
+                    //at3
+                    string reganti4 = AppDomain.CurrentDomain.BaseDirectory + "Assets/3.reg";
+                    Process regeditProcess4 = Process.Start("regedit.exe", "/s \"" + reganti4 + "\"");
+                    regeditProcess4.WaitForExit();
+                    //disable services
+                    ServiceController serviceController2 = new ServiceController("dmwappushservice");
+                    if (serviceController2.Status == ServiceControllerStatus.Running)
+                    {
+                        serviceController2.Stop();
+                    }
+                    ServiceController serviceController21 = new ServiceController("DiagTrack");
+                    if (serviceController21.Status == ServiceControllerStatus.Running)
+                    {
+                        serviceController21.Stop();
+                    }
                     await Prepare();
                     await GetRidService();
                     await LaunchProtocol();
@@ -305,11 +345,16 @@ namespace BlueSky.Libaries
                     string reganti4 = AppDomain.CurrentDomain.BaseDirectory + "Assets/3.reg";
                     Process regeditProcess4 = Process.Start("regedit.exe", "/s \"" + reganti4 + "\"");
                     regeditProcess4.WaitForExit();
-                    //disable a service
+                    //disable services
                     ServiceController serviceController2 = new ServiceController("dmwappushservice");
                     if (serviceController2.Status == ServiceControllerStatus.Running)
                     {
                         serviceController2.Stop();
+                    }
+                    ServiceController serviceController21 = new ServiceController("DiagTrack");
+                    if (serviceController21.Status == ServiceControllerStatus.Running)
+                    {
+                        serviceController21.Stop();
                     }
                     //debloat uwp a bit
                     try
@@ -356,6 +401,41 @@ namespace BlueSky.Libaries
                     }
                     Directory.CreateDirectory("C:\\BlueSky\\Temp");
                     //ensure patched original file
+                    //ensure files are deleted
+                    if (File.Exists(@"C:\Windows\System32\Windows.ApplicationModel.Store.dll"))
+                    {
+                        try
+                        {
+                            await Task.Run(() => File.Delete(@"C:\Windows\System32\Windows.ApplicationModel.Store.dll"));
+                        }
+                        catch (Exception)
+                        {
+                            notice("Game Launching Error Occured! Launcher couldn't remove needed files. Error Code LAUNCH_REM_PREP_FAIL");
+                        }
+                    }
+                    else
+                    {
+                        if(File.Exists(@"C:\Windows\SysWOW64\Windows.ApplicationModel.Store.dll"))
+                        {
+                            try
+                            {
+                                await Task.Run(() => File.Delete(@"C:\Windows\SysWOW64\Windows.ApplicationModel.Store.dll"));
+                            }
+                            catch (Exception)
+                            {
+                                notice("Game Launching Error Occured! Launcher couldn't remove needed files. Error Code LAUNCH_REM_PREP_FAIL");
+                            }
+                        }
+                    }
+                    //before patch check
+                    if (File.Exists(@"C:\Windows\System32\Windows.ApplicationModel.Store.dll"))
+                    {
+                        notice("Warning: Game Launching might fail due to unclean system!");
+                    }
+                    if (File.Exists(@"C:\Windows\SysWOW64\Windows.ApplicationModel.Store.dll"))
+                    {
+                        notice("Warning: Game Launching might fail due to unclean system!");
+                    }
                     //patch
                     await Task.Run(() => File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1164.dll", "C:\\BlueSky\\Temp\\tempx64.dll"));
                     //File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Assets/LaunchingAsset/1186.dll", "C:\\BlueSky\\Temp\\tempx86.dll");
@@ -431,26 +511,32 @@ namespace BlueSky.Libaries
                 }
                 else if (method == 3)
                 {
+                    //at1
+                    string reganti2 = AppDomain.CurrentDomain.BaseDirectory + "Assets/1.reg";
+                    Process regeditProcess2 = Process.Start("regedit.exe", "/s \"" + reganti2 + "\"");
+                    regeditProcess2.WaitForExit();
+                    //at2
+                    string reganti3 = AppDomain.CurrentDomain.BaseDirectory + "Assets/2.reg";
+                    Process regeditProcess3 = Process.Start("regedit.exe", "/s \"" + reganti3 + "\"");
+                    regeditProcess3.WaitForExit();
+                    //at3
+                    string reganti4 = AppDomain.CurrentDomain.BaseDirectory + "Assets/3.reg";
+                    Process regeditProcess4 = Process.Start("regedit.exe", "/s \"" + reganti4 + "\"");
+                    regeditProcess4.WaitForExit();
+                    //disable services
+                    ServiceController serviceController2 = new ServiceController("dmwappushservice");
+                    if (serviceController2.Status == ServiceControllerStatus.Running)
+                    {
+                        serviceController2.Stop();
+                    }
+                    ServiceController serviceController21 = new ServiceController("DiagTrack");
+                    if (serviceController21.Status == ServiceControllerStatus.Running)
+                    {
+                        serviceController21.Stop();
+                    }
                     Process.Start("minecraft://");
                     pbar.Style = ProgressBarStyle.Blocks;
                     pbar.MarqueeAnimationSpeed = 0;
-                }
-                else if (method == 4)
-                {
-                    Process.Start("minecraft://");
-                    pbar.Style = ProgressBarStyle.Marquee;
-                    pbar.MarqueeAnimationSpeed = 50;
-                    label.Text = "Launching Minecraft, please wait...";
-                    await Task.Delay(4000);
-                    label.Text = "Injecting";
-                    NonDLL.inti();
-                    NonDLL.TrialHack();
-                    label.Text = "Done!";
-                    pbar.MarqueeAnimationSpeed = 0;
-                }
-                else if (method == 5)
-                {
-                    test.start();
                 }
                 else
                 {
@@ -699,7 +785,7 @@ namespace BlueSky.Libaries
 
         public static void LatestAlready()
         {
-            System.Windows.Forms.MessageBox.Show("You already have latest version!");
+            System.Windows.Forms.MessageBox.Show("This version of BlueSky is the latest version.");
         }
 
         public static void GetMCID()
@@ -711,6 +797,33 @@ namespace BlueSky.Libaries
             int id = s[sid - 1].Id;
             sid -= 1;
             notice(id.ToString());
+        }
+
+        public static string GetWindowsBuild()
+        {
+            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+            var UBR = registryKey.GetValue("UBR").ToString();
+            var CurrentBuild = registryKey.GetValue("CurrentBuild").ToString();
+            string version = CurrentBuild + "." + UBR;
+            return version;
+        }
+
+        public static void DumpDLL()
+        {
+            string build = GetWindowsBuild();
+            string dumpfolder = @"C:\Dump_" + build;
+            if (!Directory.Exists(dumpfolder))
+            {
+                Directory.CreateDirectory(dumpfolder);
+            }
+            else
+            {
+                Directory.Delete(dumpfolder, true);
+                Directory.CreateDirectory(dumpfolder);
+            }
+            File.Copy(@"C:\Windows\System32\Windows.ApplicationModel.Store.dll", dumpfolder + @"\" + build + "x64.dll");
+            File.Copy(@"C:\Windows\SysWOW64\Windows.ApplicationModel.Store.dll", dumpfolder + @"\" + build + "x86.dll");
+            notice("Your system DLL is dumped to: " + dumpfolder);
         }
     }
 }

@@ -13,8 +13,7 @@ namespace BlueSky
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //BS.launch(int winver, int method, int timeout, System.Windows.Forms.ProgressBar pbar, System.Windows.Forms.Label label);
-            BS.launch(11, 5, 45, progressBar1, label2);
+            BS.launch(11, 2, 45, progressBar1, label2);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -39,7 +38,7 @@ namespace BlueSky
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BS.GetMCID();
+            BS.DumpDLL();
         }
     }
 }
