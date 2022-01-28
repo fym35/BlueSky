@@ -2,7 +2,7 @@
  BlueSky Launcher Source Code
  
  # What is BlueSky?
- BlueSky (was originally DynoLTS Plus) is a Minecraft launcher for Windows 10 or 11. It allows you to play the Minecraft without buying it, or act as a replacement for the new Gamepass launcher (if you don't like it). BlueSky is the successor to DynoLTS, Dyno, Berial and dotClick!Go Launcher. Also, BlueSky is safer than most alternatives because of how regularly it is updated and we also have a strong community that can help you each time a problem occurs!
+ BlueSky (was originally DynoLTS Plus) is a Minecraft launcher for Windows 10 or 11. It allows you to play Minecraft without buying it, or act as a replacement for the new Gamepass launcher (if you don't like it). BlueSky is the successor to DynoLTS, Dyno, Berial and dotClick!Go Launcher. Also, BlueSky is safer than most alternatives because of how regularly it is updated, we also have a strong community that can help you each time a problem occurs!
 
  # Is BlueSky illegal?
  Technically, yes. Since you are still playing Minecraft without buying a license for it, and that is illegal. But on other side, BlueSky still allows you to do a "clean" launch. So that's depending on how you using BlueSky.
@@ -11,7 +11,7 @@
  BlueSky development started development at 4/2021 and has been evolved into multiple versions (such as Beta 2, Beta 4, or the latest version, Beta 13). Currently all development is focused on Beta 14 which will focus on bug fixes and new features.
 
  # Installation
- You can install BlueSky by downloading precompiled binaries or compile BlueSky from source. Downloading precompiled binaries will save you a lot of time, however, compiling BlueSky from source will allow you to get the latest features earlier. A compiling guide will be in the next part, if you want precompiled binaries, just go to  the Releases tab, get the one with the "Latest" string and download it. Extract the file, go inside it, open BlueSkyNew.exe and enjoy using BlueSky!
+ You can install BlueSky by downloading precompiled binaries or compile BlueSky from source. Downloading precompiled binaries will save you a lot of time, however, compiling BlueSky from source will allow you to get the latest features earlier. A compiling guide will be in the next part, if you want precompiled binaries, just go to  the Releases tab and get the version with the "Latest" string and download it. Extract the file, go inside it, open BlueSkyNew.exe and enjoy using BlueSky!
 
  # Compilation
  You can clone the source using git or by using Github's Clone ZIP function. After that, you will need Visual Studio 2022 with .NET Development SDK installed. Open the solution file and press Start. Compiling from CLI is also supported but I will not provide any support for it.
