@@ -8,7 +8,7 @@
  Technically, yes. Since you are still playing Minecraft without buying a license for it, and that is illegal. But on other side, BlueSky still allows you to do a "clean" launch. So that's depending on how you using BlueSky.
 
  # Development
- BlueSky development started development at 4/2021 and has been evolved into multiple versions (such as Beta 2, Beta 4, or the latest version, Beta 13). Currently all development is focused on Beta 14 which will focus on bug fixes and new features.
+ BlueSky development started development at 4/2021 and has been evolved into multiple versions (such as Beta 2, Beta 4, or the latest version, Beta 13). Currently all development is focused on Beta 14 which will focus on bug fixes and new features. At the moment, BlueSky is highly unstable and should not be used in production environment.
 
  # Installation
  You can install BlueSky by downloading precompiled binaries or compile BlueSky from source. Downloading precompiled binaries will save you a lot of time, however, compiling BlueSky from source will allow you to get the latest features earlier. A compiling guide will be in the next part, if you want precompiled binaries, just go to  the Releases tab and get the version with the "Latest" string and download it. Extract the file, go inside it, open BlueSkyNew.exe and enjoy using BlueSky!
